@@ -1,4 +1,5 @@
-rlist-tutorial
-==============
+# rlist Tutorial
+#### by Kun Ren
 
-A tutorial for rlist package
+
+A tutorial for [rlist package](http://renkun.me/rlist).
