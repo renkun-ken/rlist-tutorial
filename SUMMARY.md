@@ -14,8 +14,7 @@
     * [Updating](Features/Updating.md)
     * [Searching](Features/Searching.md)
     * [Fuzzy comparer](Features/Fuzzy-comparer.md)
-    * [Input/Output](Features/Input-ouput.md)
+    * [Input/Output](Features/Input-output.md)
     * [Lambda expression](Features/Lambda-expression.md)
     * [List environment](Features/List-environment.md)
 * [Examples](Examples/README.md)
-    * []
