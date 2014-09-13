@@ -6,3 +6,4 @@ log/
 .RData
 .Rhistory
 *.local.*
+*.local
