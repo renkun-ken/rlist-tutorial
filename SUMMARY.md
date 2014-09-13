@@ -1,7 +1,6 @@
 # Summary
 
 * [Getting started](Getting-started/README.md)
-    * [Install rlist](Getting-started/Install-rlist.md)
     * [Quick overview](Getting-started/Quick-overview.md)
     * [Working in pipeline](Getting-started/Working-in-pipeline.md)
     * [Design principles](Getting-started/Design-principles.md)
