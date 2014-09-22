@@ -27,11 +27,13 @@ Although dealing with data frames has been made much easier and faster than ever
 
 It is obvious that different records have different set of interests with different lengths, and they also have different set of expertises as well.
 
-If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](people.json)) and we want to know the age distribution for each interest class of those who use R and Python both for at least 3 years. It would require some efforts to translate such question to a SQL query to ask the database.
+If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](people.json)) and we want to answer the following question:
 
-With rlist, the question would be easy to answer:
+*What is the age distribution for the most popular 3 interest classes of those who use R and Python both for at least 3 years?*
 
-```r
+It would require some efforts to translate such question to a SQL query to send to the database. But with rlist, the question would be easy to answer:
+
+```{r}
 library(rlist)
 library(pipeR)
 
@@ -40,6 +42,21 @@ people <- list.load(url)
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
   list.class(Interests) %>>%
-  list.map(intclass ~ intclass %>>% list.table(Age))
+  list.sort(desc(length(.))) %>>%
+  list.take(3) %>>%
+  list.map(. %>>% list.table(Age))
 ```
 
+The code uses [pipeR](http://renkun.me/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
+
+Let's break it down:
+
+1. We filter `people` list by the prerequisites: Using R and Python both for at least 1 year.
+2. Then we class all people by their interests, that is, we create a big list of possible interest values, each is a nested list of all people whose interests contain that value.
+3. Then we sort in descending these interest classes by the number of people who has the corresponding interest.
+4. Then we pick out the top 3 interests with most people.
+5. Then we map each interest class to a table of ages in that class.
+
+The output is exactly the answer to out question.
+
+It should be clear now that rlist only defines a collection of functions. Although each function only does a simple job, the combination of them can be very powerful. This tutorial will cover most functionality in detail and provide example solutions to commonly encountered situations.
