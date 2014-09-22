@@ -26,7 +26,7 @@ It is obvious that different records have different set of interests with differ
 
 If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](people.json)) and we want to answer the following question:
 
-*What is the age distribution for the most popular 3 interest classes of those who use R and Python both for at least 3 years?*
+*What is the age distribution for the most popular 3 interest classes of those who use both R and Python for at least one year?*
 
 It would require some efforts to translate such question to a SQL query to send to the database. But with rlist, the question would be easy to answer:
 
@@ -66,7 +66,7 @@ The code uses [pipeR](http://renkun.me/pipeR)'s `%>>%` operator to organize code
 
 Let's break it down:
 
-1. We filter `people` list by the prerequisites: Using R and Python both for at least 1 year.
+1. We filter `people` list by the prerequisites: Using both R and Python  for at least one year.
 2. Then we class all people by their interests, that is, we create a big list of possible interest values, each is a nested list of all people whose interests contain that value.
 3. Then we sort in descending these interest classes by the number of people who has the corresponding interest.
 4. Then we pick out the top 3 interests with most people.
