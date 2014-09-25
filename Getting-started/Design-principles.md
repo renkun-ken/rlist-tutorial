@@ -1,7 +1,0 @@
-
-
-# Design principles
-
-The goal of rlist is to make it easier to work with list objects. To achieve the goal when designing rlist functionality, we follow the principles below:
-
-

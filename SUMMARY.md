@@ -3,7 +3,6 @@
 * [Getting started](Getting-started/README.md)
     * [Quick overview](Getting-started/Quick-overview.md)
     * [Working in pipeline](Getting-started/Working-in-pipeline.md)
-    * [Design principles](Getting-started/Design-principles.md)
 * [Features](Features/README.md)
     * [Mapping](Features/Mapping.md)
     * [Selecting](Features/Selecting.md)
