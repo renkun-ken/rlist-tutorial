@@ -25,7 +25,7 @@ people_names <- lapply(people, function(x) {
 str(people_names)
 ```
 
-`str()` shows the structure of the list. We use it here particularly to avoid making the results too long.
+`str()` shows the structure of the list. We use it here particularly to shorten the results to show.
 
 Using rlist's `list.map()` the task is made extremely easy:
 
@@ -84,8 +84,8 @@ In contrast to `list.map()`, `list.select()` provides an easier way to map each 
 If a field name a list member is selected, its name will automatically preserved. If a list item evaluated from other expression is selected, we may better give it a name, or otherwise it will only have an index.
 
 ```r
-list.select(people, Name, Age)
-list.select(people, Name, Age, nlang=length(Expertise))
+str(list.select(people, Name, Age))
+str(list.select(people, Name, Age, nlang=length(Expertise)))
 ```
 
 ## list.iter
