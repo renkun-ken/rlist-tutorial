@@ -27,7 +27,7 @@ Although dealing with data frames has been made much easier and faster than ever
 
 It is obvious that different records have different set of interests with different lengths, and they also have different set of expertises as well.
 
-If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](people.json)) and we want to answer the following question:
+If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](../data/people.json)) and we want to answer the following question:
 
 *What is the age distribution for the most popular 3 interest classes of those who use both R and Python for at least one year?*
 
@@ -37,7 +37,7 @@ It would require some efforts to translate such question to a SQL query to send 
 library(rlist)
 library(pipeR)
 
-url <- "http://renkun.me/rlist-tutorial/Getting-started/people.json"
+url <- "http://renkun.me/rlist-tutorial/data/people.json"
 people <- list.load(url)
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
@@ -47,7 +47,7 @@ people %>>%
   list.map(. %>>% list.table(Age))
 ```
 
-The code uses [pipeR](http://renkun.me/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
+The code uses [pipeR](/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
 
 Let's break it down:
 
