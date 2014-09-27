@@ -183,14 +183,6 @@ list.mapv(people, sum(as.numeric(Expertise)))
 # [1]  9 10  7
 ```
 
-```r
-list.mapv(people, range(as.numeric(Expertise)))
-```
-
-```
-# [1] 2 4 2 5 1 4
-```
-
 ## list.select
 
 In contrast to `list.map()`, `list.select()` provides an easier way to map each list member to a new list. This functions basically evaluates all given expressions and put the results into a list.

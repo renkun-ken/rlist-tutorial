@@ -73,7 +73,6 @@ If we want to get the mapping results as a vector rather than a list, we can use
 ```{r}
 list.mapv(people, Age)
 list.mapv(people, sum(as.numeric(Expertise)))
-list.mapv(people, range(as.numeric(Expertise)))
 ```
 
 ## list.select
