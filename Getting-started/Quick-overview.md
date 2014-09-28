@@ -22,7 +22,7 @@ Although dealing with data frames has been made much easier and faster than ever
 | James | 25 | sports, music | R:3, Java:2, C++:5 |
 | Penny | 24 | movies, reading | R:1, C++:4, Python:2 |
 
-It is obvious that different records have different set of interests with different lengths, and they also have different set of expertises as well.
+It is obvious that different records have different set of interests with different lengths, and they also have different set of expertise as well.
 
 If we are forced to squeeze the data into tabular form, there should be multiple tables and a number of relationships between them. Suppose we have a longer list of people (see [here](../data/people.json)) and we want to answer the following question:
 
@@ -37,23 +37,29 @@ library(pipeR)
 
 url <- "http://renkun.me/rlist-tutorial/data/people.json"
 people <- list.load(url)
-```
-
-```
-# Error: client error: (404) Not Found
-```
-
-```r
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
   list.class(Interests) %>>%
-  list.sort(desc(length(.))) %>>%
+  list.sort(-length(.)) %>>%
   list.take(3) %>>%
   list.map(. %>>% list.table(Age))
 ```
 
 ```
-# Error: object 'people' not found
+# $music
+# Age
+# 21 22 23 24 25 26 27 28 29 30 31 32 33 35 36 
+#  1  2  1  2  5  9  6  5  9  6  4  4  1  1  1 
+# 
+# $hiking
+# Age
+# 21 22 23 24 25 26 27 28 29 30 31 32 33 
+#  2  1  1  3  4  4  6  4  7 13  5  4  2 
+# 
+# $reading
+# Age
+# 19 22 23 24 25 26 27 28 29 30 31 32 33 35 
+#  1  1  2  1  4  6  2  3  9 11  3  3  3  1
 ```
 
 The code uses [pipeR](/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
