@@ -4,3 +4,4 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 ```
 
 # Fuzzy comparer
+

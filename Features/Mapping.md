@@ -2,13 +2,15 @@
 
 # Mapping
 
-Suppose we load the [data](../data/sample.json) represented by the following table:
+Suppose we load the [data](../data/sample.json) which is represented by the following table:
 
 | Name | Age | Interests | Expertise |
 |------|-----|----------|----------|
 | Ken | 24 | reading, music, movies | R:2, C#:4, Python:3 |
 | James | 25 | sports, music | R:3, Java:2, C++:5 |
 | Penny | 24 | movies, reading | R:1, C++:4, Python:2 |
+
+`list.load()` is designed for loading data from given data source. The data source can be either local or remote and the function by default uses the file extension to decide the way to read it.
 
 
 ```r
@@ -45,24 +47,25 @@ str(people)
 #   .. ..$ Python: int 2
 ```
 
-To extract the name of each people (list element), traditionally we can we `lapply()` like the following:
+To extract the name of each people (list element), traditionally we can call `lapply()` like the following:
 
 
 ```r
-people_names <- lapply(people, function(x) {
+lapply(people, function(x) {
   x$Name
 })
-str(people_names)
 ```
 
 ```
-# List of 3
-#  $ : chr "Ken"
-#  $ : chr "James"
-#  $ : chr "Penny"
+# [[1]]
+# [1] "Ken"
+# 
+# [[2]]
+# [1] "James"
+# 
+# [[3]]
+# [1] "Penny"
 ```
-
-`str()` shows the structure of the list. We use it here particularly to shorten the results to show.
 
 Using rlist's `list.map()` the task is made extremely easy:
 
@@ -110,7 +113,7 @@ list.map(people, Age)
 
 Since the expression does not have to be a field name of the list member, we can evaluate whatever we want in the context of a list member.
 
-The following code maps each list member to the sum of years of they use the programming languages they know.
+The following code maps each list member to the sum of years of the programming languages they use.
 
 
 ```r
@@ -130,7 +133,7 @@ list.map(people, sum(as.numeric(Expertise)))
 
 If we need more than one values for each member, we can evaluate a vector or list expression.
 
-The following code maps each list member to a new list of his or her age and range of number of years using a programming language.
+The following code maps each list member to a new list of the age and range of number of years using programming languages.
 
 
 ```r
@@ -161,6 +164,59 @@ list.map(people, list(age=Age, range=range(as.numeric(Expertise))))
 # [[3]]$range
 # [1] 1 4
 ```
+
+In some cases we need to refer to the item itself, or its index in the list, or even its name. In the expression, `.` represents the item itself, `.i` represents its index, and `.name` represents its name.
+
+For example,
+
+
+```r
+nums <- c(a=3, b=2, c=1)
+list.map(nums, . + 1)
+```
+
+```
+# $a
+# [1] 4
+# 
+# $b
+# [1] 3
+# 
+# $c
+# [1] 2
+```
+
+```r
+list.map(nums, .i)
+```
+
+```
+# $a
+# [1] 1
+# 
+# $b
+# [1] 2
+# 
+# $c
+# [1] 3
+```
+
+```r
+list.map(nums, paste0("name: ", .name))
+```
+
+```
+# $a
+# [1] "name: a"
+# 
+# $b
+# [1] "name: b"
+# 
+# $c
+# [1] "name: c"
+```
+
+If the default symbols clash with the data, we can use lambda expression to specify other symbols. We will cover this later.
 
 ## list.mapv
 

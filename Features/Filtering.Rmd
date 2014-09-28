@@ -91,6 +91,14 @@ people %>>%
   list.findi(Age >= 23, 2)
 ```
 
+## list.take
+
+
+
+## list.skip
+
+
+
 ## list.takeWhile
 
 `list.takeWhile()` keeps taking members while a condition holds true.

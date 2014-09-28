@@ -5,7 +5,7 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 # Sorting
 
-rlist package provides functions for sorting list members by lambda expression.
+rlist package provides functions for sorting list elements by a series of criteria.
 
 ```{r}
 library(rlist)

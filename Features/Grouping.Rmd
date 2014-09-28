@@ -14,7 +14,6 @@ library(rlist)
 library(pipeR)
 people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
 ```
-```
 
 ## list.group
 
@@ -42,7 +41,7 @@ The same logic allows us to do another grouping by the number of Interestss and 
 
 ```{r}
 people %>>%
-  list.group(length(Interestss)) %>>%
+  list.group(length(Interests)) %>>%
   list.map(. %>>% list.mapv(Name))
 ```
 
@@ -93,7 +92,7 @@ people %>>%
   list.map(. %>>% list.mapv(Name))
 ```
 
-Another example is case classification by the programming languages people use, that is, `names(Expertise)`:
+Another example is case classification by the programming languages people use:
 
 ```{r}
 people %>>%
@@ -111,9 +110,7 @@ Get the common Interests of all developers.
 list.common(people, Interests)
 ```
 
-It concludes that no interests are common to every one.
-
-Or get the common programming languages they all use.
+It concludes that no interests are common to every one. Let's see if there is any common programming language they all use.
 
 ```{r}
 list.common(people, names(Expertise))
