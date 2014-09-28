@@ -13,7 +13,7 @@ Pipeline operations will definitely help you write more elegant code that is muc
 ```r
 people_filtered <- list.filter(people, Expertise$R >= 1 & Expertise$Python >= 1)
 people_classes <- list.class(people_filtered, Interests)
-people_classes_sorted <- list.sort(people_classes, desc(length(.))) %>>%
+people_classes_sorted <- list.sort(people_classes, -length(.)) %>>%
 top_3_classes <- list.take(people_classes_sorted, 3)
 top_3_table_age <- list.map(top_3_classes, . %>>% list.table(Age))
 ```
@@ -23,7 +23,7 @@ or a version without any intermediate variables but deeply nested function calls
 ```r
 list.map(list.take(list.sort(list.class(list.filter(people,
   Expertise$R >= 1 & Expertise$Python >= 1),Interests),
-  desc(length(.))),3), . %>>% list.table(Age))
+  -length(.)),3), . %>>% list.table(Age))
 ```
 
 The first version is hard to write (wasting time on naming variables). The second version is hard to read (almost a challenge to figure out the logic). Both versions are hard to maintain (imagine we need to add a data filter in the middle).
@@ -34,7 +34,7 @@ Let's see the version with `%>>%`.
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
   list.class(Interests) %>>%
-  list.sort(desc(length(.))) %>>%
+  list.sort(-length(.)) %>>%
   list.take(3) %>>%
   list.map(. %>>% list.table(Age))
 ```
