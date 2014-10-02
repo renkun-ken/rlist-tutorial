@@ -2,7 +2,7 @@
 
 # Filtering
 
-List filtering is to select list members that meet given criteria. In rlist package, more than ten functions are related with list filtering. Basically, they all perform a mapping but aggregate the results in different ways.
+List filtering is to select list elements that meet given criteria. In rlist package, more than ten functions are related with list filtering. Basically, they all perform mapping first but then aggregate the results in different ways.
 
 First, we load the sample data.
 
@@ -14,7 +14,9 @@ people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
 
 ## list.filter
 
-`list.filter` filters a list by an expression that returns a logical value. Only the list members for which the value of that expression turns out to be `TRUE` will be part of the results.
+`list.filter()` filters a list by an expression that returns `TRUE` or `FALSE`. The results only contain the list elements for which the value of that expression turns out to be `TRUE`.
+
+Different from list mapping which evaluates an expression given each list element, list filtering evaluates an expression to decide whether to include *the entire element* in the results.
 
 
 ```r
@@ -35,7 +37,7 @@ str(list.filter(people, Age >= 25))
 
 Note that `list.filter()` filters the data with given conditions and the list elements that satisfy the conditions will be returned. We call `str()` on the results to shorten the output.
 
-Using pipeline, we can first filter the data and then map the resulted elements by expression.
+Using pipeline, we can first filter the data and then map the resulted elements by expression. For example, we can get the names of those whose age is no less than 25.
 
 
 ```r
@@ -134,15 +136,49 @@ people %>>%
 
 ## list.take
 
+`list.take()` takes at most a given number of elements from a list. If the number is even larger than the length of the list, the function will by default return all elements in the list.
 
+
+```r
+list.take(1:10, 3)
+```
+
+```
+# [1] 1 2 3
+```
+
+```r
+list.take(1:5, 8)
+```
+
+```
+# [1] 1 2 3 4 5
+```
 
 ## list.skip
 
+As opposed to `list.take()`, `list.skip()` skips at most a given number of elements in the list and take all the rest as the results. If the number of elements to skip is equal or greater than the length of that list, an empty one will be returned.
 
+
+```r
+list.skip(1:10, 3)
+```
+
+```
+# [1]  4  5  6  7  8  9 10
+```
+
+```r
+list.skip(1:5, 8)
+```
+
+```
+# integer(0)
+```
 
 ## list.takeWhile
 
-`list.takeWhile()` keeps taking members while a condition holds true.
+Similar to `list.take()`, `list.takeWhile()` is also designed to take out some elements from a list but subject to a condition. Basically, it keeps taking elements while a condition holds true.
 
 
 ```r
@@ -291,7 +327,7 @@ list.count(people, "R" %in% names(Expertise))
 
 ## list.match
 
-`list.match` filters a list by matching the names of the list members by a regular expression pattern.
+`list.match()` filters a list by matching the names of the list members by a regular expression pattern.
 
 
 ```r
@@ -309,7 +345,7 @@ list.match(data, "p[12]")
 
 ## list.remove
 
-`list.remove` removes list members by index or name.
+`list.remove()` removes list members by index or name.
 
 
 ```r
@@ -338,7 +374,7 @@ list.remove(data, c(2,3))
 
 ## list.exclude
 
-`list.exclude` removes list members that satisfy given condition.
+`list.exclude()` removes list members that satisfy given condition.
 
 
 ```r
@@ -353,7 +389,7 @@ people %>>%
 
 ## subset
 
-`subset` is implemented for list object in a way that combines `list.filter` and `list.map`. This function basically filters a list while at the same time maps the qualified list member by an expression.
+`subset()` is implemented for list object in a way that combines `list.filter()` and `list.map()`. This function basically filters a list while at the same time maps the qualified list element by an expression.
 
 
 ```r

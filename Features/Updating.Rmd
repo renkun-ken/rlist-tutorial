@@ -28,3 +28,11 @@ people %>>%
   list.update(Interests = NULL, Expertise = NULL, N = length(Expertise)) %>>%
   list.stack
 ```
+
+```{r}
+1:1000 %>>%
+  list.group(. %% 7) %>>%
+  list.mapv(sum(.)) %>>%
+  list.sort(as.integer(.name))
+```
+

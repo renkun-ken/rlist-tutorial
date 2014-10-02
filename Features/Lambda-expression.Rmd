@@ -5,16 +5,16 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 # Lambda expression
 
-Although the list fields of each member are directly accessible in the expression, sometimes we still need to access the list member itself, usually for its meta-information. Lambda expressions provide a mechanism that allows you to use default or customized meta-symbols to access the meta-information of the list member.
+Although the fields of each list element are directly accessible in the expression, sometimes we still need to access the list element itself, usually for its meta-information. Lambda expressions provide a mechanism that allows you to use default or customized meta-symbols to access the meta-information of the list element.
 
 In rlist package, all functions that work with expressions support the following types of lambda expressions.
 
-- Implicit lambda expression: An ordinary expression with no special syntax yet the fields of list members are directly accessible. 
+- Implicit lambda expression: An ordinary expression with no special syntax yet the fields of elements are directly accessible. 
 - Explicit lambda expression:
-    - Univariate lambda expression: In contrast to implicit lambda expression, the symbol that refers to the list member is customized in the following formats:
+    - Univariate lambda expression: In contrast to implicit lambda expression, the symbol that refers to the element is customized in the following formats:
         * `x ~ expression`
         * `f(x) ~ expression`
-    - Multivariate lambda expression: In contrast to univariate lambda expression, the symbols of list member, index, and member name are customized in the following formats:
+    - Multivariate lambda expression: In contrast to univariate lambda expression, the symbols of element, index, and member name are customized in the following formats:
         * `f(x,i) ~ expression`
         * `f(x,i,name) ~ expression`
 
@@ -25,7 +25,7 @@ library(rlist)
 
 ## Implicit lambda expression
 
-Implicit lambda expression is an ordinary expression with no special syntax like `~`. In this case, meta symbols are implicitly defined in default, that is, `.` represents the list member, `.i` represents the index, and `.name` represents the name of the list member.
+Implicit lambda expression is an ordinary expression with no special syntax like `~`. In this case, meta symbols are implicitly defined in default, that is, `.` represents the element, `.i` represents the index, and `.name` represents the name of the element.
 
 For example,
 
@@ -35,7 +35,7 @@ list.map(x,y)
 list.map(x,sum(as.numeric(.)))
 ```
 
-In the second mapping above, `.` represents each list member. For the first member, the meta-symbols take the following values:
+In the second mapping above, `.` represents each element. For the first member, the meta-symbols take the following values:
 
 ```r
 . = x[[1]] = list(x=1,y=2)
@@ -45,7 +45,7 @@ In the second mapping above, `.` represents each list member. For the first memb
 
 ## Explicit lambda expression
 
-To use other symbols to represent the metadata of a list member, we can use explicit lambda expressions.
+To use other symbols to represent the metadata of a element, we can use explicit lambda expressions.
 
 ```{r}
 x <- list(a=list(x=1,y=2),b=list(x=2,y=3))

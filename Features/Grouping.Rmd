@@ -19,13 +19,19 @@ people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
 
 `list.group()` is used to classify the list members into different groups by evaluating a given expression and see what value it takes. The expression often produces a scalar value such as a logical value, a character value, and a number. Each group denotes a unique value that expression takes for at least one list member, and all members are put into one and only one group.
 
-We divide all elements into groups by their ages:
+Divide numbers from 1 to 10 into even and odd numbers.
+
+```{r}
+list.group(1:10, . %% 2 == 0L)
+```
+
+With the same logic, we can divide all elements in `people` into groups by their ages:
 
 ```{r}
 str(list.group(people, Age))
 ```
 
-The result is another list whose first-level elements are the groups whose elements are exactly those who belong to the group.
+The result is another list whose first-level elements are the groups and the elements in each group are exactly the elements that belong to the group.
 
 To get the names of people in each group, we can map each group to the names in it.
 
@@ -35,9 +41,9 @@ people %>>%
   list.map(. %>>% list.mapv(Name))
 ```
 
-The mapping runs at the first-level, that is, for each group. The maper expression `. %>>% list.mapv(Name)` means that each group maps to the names of the people in it.
+The mapping runs at the first-level, that is, for each group. The maper expression `. %>>% list.mapv(Name)` means that each people in the group maps to the name.
 
-The same logic allows us to do another grouping by the number of Interestss and then to see their names.
+The same logic allows us to do another grouping by the number of Interests and then to see their names.
 
 ```{r}
 people %>>%
@@ -74,7 +80,7 @@ list.cases(people, names(Expertise))
 
 ## list.class
 
-To group by cases, use `list.class` function. This function basically classify all list members case by case. Therefore, a long and nested list will be produces, in which the first-level denotes all the cases, and the second-level includes the original list members.
+To group by cases, use `list.class()` function. This function basically classify all list members case by case. Therefore, a long and nested list will be produces, in which the first-level denotes all the cases, and the second-level includes the original list members.
 
 Note that each list member may belong to multiple cases, therefore the classification of the cases for each member is not exclusive. You may find one list member belong to multiple cases in the resulted list.
 

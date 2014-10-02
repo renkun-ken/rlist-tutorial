@@ -57,6 +57,6 @@ Let's break it down:
 4. Then we pick out the top 3 interests with most people.
 5. Then we map each interest class to a table of ages in that class.
 
-The output is exactly the answer to out question.
+The output is exactly the answer to the question.
 
-It should be clear now that rlist only defines a collection of functions. Although each function only does a simple job, the combination of them can be very powerful. This tutorial will cover most functionality in detail and provide example solutions to commonly encountered situations.
+It should be clear now that rlist defines a collection of functions to manipulate list objects. Although each function only does a simple job, the combination of them can be very powerful. This tutorial will cover most functionality in detail and provide example solutions to commonly encountered data processing problems.

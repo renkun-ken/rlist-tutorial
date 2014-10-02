@@ -2,7 +2,7 @@
 
 # File formats
 
-In the previous pages, we have pointed out that rlist is designed to deal with non-tabular data, that is, data that does not well fit a tabular form. To remind the difference between them, we recall the examples we used.
+In the previous pages, we have pointed out that rlist is designed to deal with non-tabular data, that is, data that does not well fit a tabular form. To stress the difference between them, we recall the examples we used.
 
 The following table represents a tabular data:
 
@@ -23,7 +23,7 @@ Jennifer,Female,23,Computer Science
 
 It is obvious that each line represents a record and columns can be distinguished by comma. In R reading a `csv` file is simple: `read.csv()` can handle it easily.
 
-However, when it comes to non-tabular data, standard CSV format and the reader functions certainly do not handle it as well as it does with tabular data. Recall the following table in which a non-tabular data is demonstrated:
+However, when it comes to non-tabular data, standard CSV format and the reader functions do not handle it so well as it does with tabular data. Recall the following table representing a non-tabular dataset:
 
 | Name | Age | Interests | Expertise |
 |------|-----|----------|----------|
@@ -31,7 +31,9 @@ However, when it comes to non-tabular data, standard CSV format and the reader f
 | James | 25 | sports, music | R:3, Java:2, C++:5 |
 | Penny | 24 | movies, reading | R:1, C++:4, Python:2 |
 
-You can try to write a CSV file to represent it, but the outcome may not be satisfactory: the number of values of `Interests` column is not fixed, and the values of `Expertise` column are also different in names.
+You may have to try to write a CSV file to represent the data, but the outcome would not be satisfactory: the number of values of `Interests` column is not fixed, and the values of `Expertise` column are also different in names. 
+
+Alternatively, you may also try to build a relational database to contain the data. The structure of the database, however, would be a bit tricky: More than one tables are to be created, each is restricted by one type of structure. To query the data with flexibility, one has to work with multiple tables by joining them.
 
 [JSON](http://json.org/) is a powerful format to represent such flexible data. It certainly has more notations but does not make the representation too complex. The following text is the JSON format of the table above.
 
@@ -122,3 +124,5 @@ Another file format that is also widely used is [YAML](http://yaml.org/). The fo
 ```
 
 Note that YAML representation is much cleaner than JSON format. rlist also imports [yaml](https://github.com/viking/r-yaml) package to read/write YAML data.
+
+In the coming tutorial pages, we will mainly use JSON data to demonstrate the features and examples of rlist package.

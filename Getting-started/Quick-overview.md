@@ -37,6 +37,13 @@ library(pipeR)
 
 url <- "http://renkun.me/rlist-tutorial/data/people.json"
 people <- list.load(url)
+```
+
+```
+# Error: Could not resolve host: renkun.me; Host not found
+```
+
+```r
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
   list.class(Interests) %>>%
@@ -46,20 +53,7 @@ people %>>%
 ```
 
 ```
-# $music
-# Age
-# 21 22 23 24 25 26 27 28 29 30 31 32 33 35 36 
-#  1  2  1  2  5  9  6  5  9  6  4  4  1  1  1 
-# 
-# $hiking
-# Age
-# 21 22 23 24 25 26 27 28 29 30 31 32 33 
-#  2  1  1  3  4  4  6  4  7 13  5  4  2 
-# 
-# $reading
-# Age
-# 19 22 23 24 25 26 27 28 29 30 31 32 33 35 
-#  1  1  2  1  4  6  2  3  9 11  3  3  3  1
+# Error: object 'people' not found
 ```
 
 The code uses [pipeR](/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
@@ -72,6 +66,6 @@ Let's break it down:
 4. Then we pick out the top 3 interests with most people.
 5. Then we map each interest class to a table of ages in that class.
 
-The output is exactly the answer to out question.
+The output is exactly the answer to the question.
 
-It should be clear now that rlist only defines a collection of functions. Although each function only does a simple job, the combination of them can be very powerful. This tutorial will cover most functionality in detail and provide example solutions to commonly encountered situations.
+It should be clear now that rlist defines a collection of functions to manipulate list objects. Although each function only does a simple job, the combination of them can be very powerful. This tutorial will cover most functionality in detail and provide example solutions to commonly encountered data processing problems.

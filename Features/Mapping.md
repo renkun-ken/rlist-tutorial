@@ -352,6 +352,6 @@ list.maps(a$x*b+a$y, a=l1, b=l2)
 # [1] 8
 ```
 
-`list.maps` does not follow the conventions of many other functions like `list.map` and `list.iter` where the data comes first and expression comes the second. Since `list.maps` supports multi-mapping with a group of lists, only implicit lambda expression is supported to avoid ambiguity. After that the function still allows users to define the symbol that represents each list being mapped in the `...`.
+`list.maps()` does not follow the conventions of many other functions like `list.map()` and `list.iter()` where the data comes first and expression comes the second. Since `list.maps()` supports multi-mapping with a group of lists, only implicit lambda expression is supported to avoid ambiguity. After that the function still allows users to define the symbol that represents each list being mapped in `...`.
 
-In the example above, `...` means `a = l1, b = l2`, so that `a` and `b` are meaningful in the first expression `a$x*b+a$y` where `a` and `b` mean the current element of each list, respectively.
+In the example above, `...` means `a = l1, b = l2`, so that `a` and `b` are meaningful in the first expression `a$x*b+a$y` where `a` and `b` mean the iterating element of each list, respectively.
