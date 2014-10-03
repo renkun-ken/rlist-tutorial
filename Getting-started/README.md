@@ -14,5 +14,5 @@ or the latest development version (v0.3-3) from [GitHub](https://github.com/renk
 
 ```r
 install.packages("devtools")
-devtools::install_github("rlist","renkun-ken")
+devtools::install_github("renkun-ken/rlist")
 ```
