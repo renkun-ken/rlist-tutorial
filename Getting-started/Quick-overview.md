@@ -37,13 +37,6 @@ library(pipeR)
 
 url <- "http://renkun.me/rlist-tutorial/data/people.json"
 people <- list.load(url)
-```
-
-```
-# Error: Could not resolve host: renkun.me; Host not found
-```
-
-```r
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%
   list.class(Interests) %>>%
@@ -53,7 +46,20 @@ people %>>%
 ```
 
 ```
-# Error: object 'people' not found
+# $music
+# Age
+# 21 22 23 24 25 26 27 28 29 30 31 32 33 35 36 
+#  1  2  1  2  5  9  6  5  9  6  4  4  1  1  1 
+# 
+# $hiking
+# Age
+# 21 22 23 24 25 26 27 28 29 30 31 32 33 
+#  2  1  1  3  4  4  6  4  7 13  5  4  2 
+# 
+# $reading
+# Age
+# 19 22 23 24 25 26 27 28 29 30 31 32 33 35 
+#  1  1  2  1  4  6  2  3  9 11  3  3  3  1
 ```
 
 The code uses [pipeR](/pipeR)'s `%>>%` operator to organize code into fluent style. Even if you are not familiar with the functions and operators, you would probably be correct if you guess what the code does.
