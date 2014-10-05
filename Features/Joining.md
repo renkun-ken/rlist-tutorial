@@ -2,7 +2,7 @@
 
 # Joining
 
-`list.join()` joins two lists by certain expressions and `list.merge()` merges  a series of lists.
+`list.join()` joins two lists by certain expressions and `list.merge()` merges a series of named lists.
 
 
 ```r

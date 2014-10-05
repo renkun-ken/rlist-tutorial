@@ -4,6 +4,8 @@
 
 `list.update()` partially modifies the given list by a number of lists resulted from expressions.
 
+First, we load the data without any modification.
+
 
 ```r
 library(rlist)
@@ -21,6 +23,10 @@ people %>>%
 # 3 Penny  24
 ```
 
+`list.stack()` converts a list to a data frame with equivalent structure. We will introduce this function later.
+
+Suppose we find that the age of each people is mistakenly recorded, say, 1 year less than their actual ages, respectively, we need to update the original data by refresh the age of each element.
+
 
 ```r
 people %>>%
@@ -36,6 +42,8 @@ people %>>%
 # 3 Penny  25
 ```
 
+`list.update()` can also be used to exclude certain fields of the elements. Once we update the fields we want to exclude to `NULL`, those fields are removed.
+
 
 ```r
 people %>>%
@@ -49,17 +57,3 @@ people %>>%
 # 2 James  25 3
 # 3 Penny  24 3
 ```
-
-
-```r
-1:1000 %>>%
-  list.group(. %% 7) %>>%
-  list.mapv(sum(.)) %>>%
-  list.sort(as.integer(.name))
-```
-
-```
-#     0     1     2     3     4     5     6 
-# 71071 71214 71357 71500 71643 71786 71929
-```
-

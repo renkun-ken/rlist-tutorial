@@ -2,7 +2,7 @@
 
 # Filtering
 
-List filtering is to select list elements that meet given criteria. In rlist package, more than ten functions are related with list filtering. Basically, they all perform mapping first but then aggregate the results in different ways.
+List filtering is to select list elements by given criteria. In rlist package, more than ten functions are related with list filtering. Basically, they all perform mapping first but then aggregate the results in different ways.
 
 First, we load the sample data.
 
@@ -92,7 +92,7 @@ people %>>%
 # [1] "Ken"   "James"
 ```
 
-Meta-symbols like `.`, `.i`, and `.name` can also be used. The following code will pick up the list member whose index is even.
+Meta-symbols like `.`, `.i`, and `.name` can also be used. The following code will pick up the list element whose index is even.
 
 
 ```r
@@ -107,7 +107,7 @@ people %>>%
 
 ## list.find
 
-In some cases, we don't need to find all the instances given the criteria. Rather, we only need to find a few, sometimes only one. `list.find()` avoids searching across all list member but stops at a specific number of items found.
+In some cases, we don't need to find all the instances given the criteria. Rather, we only need to find a few, sometimes only one. `list.find()` avoids searching across all list element but stops at a specific number of items found.
 
 
 ```r
@@ -122,7 +122,7 @@ people %>>%
 
 ## list.findi
 
-Similar with `list.find()`, `list.findi()` only returns the index of the members found.
+Similar with `list.find()`, `list.findi()` only returns the index of the elements found.
 
 
 ```r
@@ -133,6 +133,8 @@ people %>>%
 ```
 # [1] 1 2
 ```
+
+You may verify that if the number of instances to find is greater than the actual number of instances in the data, all qualified instances will be returned.
 
 ## list.take
 
@@ -200,7 +202,7 @@ people %>>%
 
 ## list.skipWhile
 
-`list.skipWhile()` keeps skipping members while a condition holds true.
+`list.skipWhile()` keeps skipping elements while a condition holds true.
 
 
 ```r
@@ -243,7 +245,7 @@ list.is(people, "Java" %in% names(Expertise))
 
 ## list.which
 
-`list.which()` returns a integer vector of the indices of the members of a list that meet a given condition.
+`list.which()` returns a integer vector of the indices of the elements of a list that meet a given condition.
 
 
 ```r
@@ -264,7 +266,7 @@ list.which(people, "Java" %in% names(Expertise))
 
 ## list.all
 
-`list.all()` returns `TRUE` if all the members of a list satisfy a given condition, or `FALSE` otherwise.
+`list.all()` returns `TRUE` if all the elements of a list satisfy a given condition, or `FALSE` otherwise.
 
 
 ```r
@@ -285,7 +287,7 @@ list.all(people, "R" %in% names(Expertise))
 
 ## list.any
 
-`list.any()` returns `TRUE` if at least one of the members of a list satisfies a given condition, or `FALSE` otherwise.
+`list.any()` returns `TRUE` if at least one of the elements of a list satisfies a given condition, or `FALSE` otherwise.
 
 
 ```r
@@ -306,7 +308,7 @@ list.any(people, "Python" %in% names(Expertise))
 
 ## list.count
 
-`list.count()` return a scalar integer that indicates the number of members of a list that satisfy a given condition.
+`list.count()` return a scalar integer that indicates the number of elements of a list that satisfy a given condition.
 
 
 ```r
@@ -327,7 +329,7 @@ list.count(people, "R" %in% names(Expertise))
 
 ## list.match
 
-`list.match()` filters a list by matching the names of the list members by a regular expression pattern.
+`list.match()` filters a list by matching the names of the list elements by a regular expression pattern.
 
 
 ```r
@@ -345,7 +347,7 @@ list.match(data, "p[12]")
 
 ## list.remove
 
-`list.remove()` removes list members by index or name.
+`list.remove()` removes list elements by index or name.
 
 
 ```r
@@ -374,7 +376,7 @@ list.remove(data, c(2,3))
 
 ## list.exclude
 
-`list.exclude()` removes list members that satisfy given condition.
+`list.exclude()` removes list elements that satisfy given condition.
 
 
 ```r
@@ -389,7 +391,7 @@ people %>>%
 
 ## subset
 
-`subset()` is implemented for list object in a way that combines `list.filter()` and `list.map()`. This function basically filters a list while at the same time maps the qualified list element by an expression.
+`subset()` is implemented for list object in a way that combines `list.filter()` and `list.map()`. This function basically filters a list while at the same time maps the qualified list elements by an expression.
 
 
 ```r

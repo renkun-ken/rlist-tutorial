@@ -82,6 +82,31 @@ str(list.parse(yamltext,type="yaml"))
 #   ..$ age : int 23
 ```
 
+## list.stack
+
+`list.stack()` reverses `list.parse()` on a data frame, that is, it converts a list of homogeneous elements to a data frame with corresponding columns. In other words, the function stacks all list elements together, resulting in a data frame.
+
+
+```r
+jsontext <- '
+[{ "name": "Ken", "age": 24 },
+ { "name": "Ashley", "age": 25},
+ { "name": "James", "age": 23 }]'
+data <- list.parse(jsontext,type="json")
+list.stack(data)
+```
+
+```
+#     name age
+# 1    Ken  24
+# 2 Ashley  25
+# 3  James  23
+```
+
+Note that data frame is much more efficient to store tabular data that has different columns, each of which is a vector storing values of the same type. In R, a data frame is in essence a list of vectors. However, the data rlist functions are designed to deal with can be non-tabular to allow more flexible and more loose data structure.
+
+If we are sure about the data structure of the resulted list and want to convert it to a data frame with equivalent structure, `list.stack()` does the work.
+
 ## list.load, list.save
 
 `list.load()` is used to load list data from a JSON, YAML, or RData file. Its default behavior is to first look at file extension and then determine which data loader is used. If the file extension does not match JSON or YAML, it will use RData loader.
