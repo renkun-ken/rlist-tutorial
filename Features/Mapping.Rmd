@@ -21,6 +21,8 @@ people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
 str(people)
 ```
 
+> NOTE: `str()` previews the structure of an object. We may use this function more often to avoid verbose representation of list objects.
+
 To extract the name of each people (list element), traditionally we can call `lapply()` like the following:
 
 ```{r}
@@ -39,7 +41,7 @@ List mapping is to evaluate an expression for each list member. It is the fundam
 
 ## list.map
 
-The simplest way of mapping is provided by `list.map()` as we have just demonstrated. Basically, it evaluates an expression for each list member. 
+The simplest way of mapping is provided by `list.map()` as we have just demonstrated. Basically, it evaluates an expression for each list element. 
 
 The function makes it easier to query a list by putting all fields of the list member in mapping to the environment where the expression is evaluated. In other words, the expression is evaluated in the context of one list member each time.
 
@@ -78,6 +80,8 @@ list.map(nums, paste0("name: ", .name))
 
 If the default symbols clash with the data, we can use lambda expression to specify other symbols. We will cover this later.
 
+> NOTE: rlist functions are general enough to work smoothly with vectors. `list.map()` works very much like `lapply()` so that the input will be finally transformed to list.
+
 ## list.mapv
 
 If we want to get the mapping results as a vector rather than a list, we can use `list.mapv()`, which basically calls `unlist()` to the list resulted from `list.map()`.
@@ -102,7 +106,7 @@ list.select(people, Name, Age, nlang=length(Expertise))
 
 Sometimes we don't really need the result of a mapping but its side effects. For example, if we only need to print out something about each list member, we don't need to carry on the output of mapping.
 
-`list.iter` performs iterations over a list and returns nothing.
+`list.iter()` performs iterations over a list and returns the input data invisibly for further data transformation.
 
 ```{r}
 list.iter(people, cat(Name, ":", Age, "\n"))

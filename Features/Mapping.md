@@ -16,36 +16,21 @@ Suppose we load the [data](../data/sample.json) which is represented by the foll
 ```r
 library(rlist)
 people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+```
+
+```
+# Error: Could not resolve host: renkun.me; Host not found
+```
+
+```r
 str(people)
 ```
 
 ```
-# List of 3
-#  $ :List of 4
-#   ..$ Name     : chr "Ken"
-#   ..$ Age      : int 24
-#   ..$ Interests: chr [1:3] "reading" "music" "movies"
-#   ..$ Expertise:List of 3
-#   .. ..$ R     : int 2
-#   .. ..$ CSharp: int 4
-#   .. ..$ Python: int 3
-#  $ :List of 4
-#   ..$ Name     : chr "James"
-#   ..$ Age      : int 25
-#   ..$ Interests: chr [1:2] "sports" "music"
-#   ..$ Expertise:List of 3
-#   .. ..$ R   : int 3
-#   .. ..$ Java: int 2
-#   .. ..$ Cpp : int 5
-#  $ :List of 4
-#   ..$ Name     : chr "Penny"
-#   ..$ Age      : int 24
-#   ..$ Interests: chr [1:2] "movies" "reading"
-#   ..$ Expertise:List of 3
-#   .. ..$ R     : int 1
-#   .. ..$ Cpp   : int 4
-#   .. ..$ Python: int 2
+# Error: object 'people' not found
 ```
+
+> NOTE: `str()` previews the structure of an object. We may use this function more often to avoid verbose representation of list objects.
 
 To extract the name of each people (list element), traditionally we can call `lapply()` like the following:
 
@@ -57,14 +42,7 @@ lapply(people, function(x) {
 ```
 
 ```
-# [[1]]
-# [1] "Ken"
-# 
-# [[2]]
-# [1] "James"
-# 
-# [[3]]
-# [1] "Penny"
+# Error: object 'people' not found
 ```
 
 Using rlist's `list.map()` the task is made extremely easy:
@@ -75,21 +53,14 @@ list.map(people, Name)
 ```
 
 ```
-# [[1]]
-# [1] "Ken"
-# 
-# [[2]]
-# [1] "James"
-# 
-# [[3]]
-# [1] "Penny"
+# Error: object 'people' not found
 ```
 
 List mapping is to evaluate an expression for each list member. It is the fundamental operation in rlist functionality. Almost all functions in this package that work with expressions are using mapping but in different ways. The following examples demonstrate several types of mapping in more details.
 
 ## list.map
 
-The simplest way of mapping is provided by `list.map()` as we have just demonstrated. Basically, it evaluates an expression for each list member. 
+The simplest way of mapping is provided by `list.map()` as we have just demonstrated. Basically, it evaluates an expression for each list element. 
 
 The function makes it easier to query a list by putting all fields of the list member in mapping to the environment where the expression is evaluated. In other words, the expression is evaluated in the context of one list member each time.
 
@@ -101,14 +72,7 @@ list.map(people, Age)
 ```
 
 ```
-# [[1]]
-# [1] 24
-# 
-# [[2]]
-# [1] 25
-# 
-# [[3]]
-# [1] 24
+# Error: object 'people' not found
 ```
 
 Since the expression does not have to be a field name of the list member, we can evaluate whatever we want in the context of a list member.
@@ -121,14 +85,7 @@ list.map(people, sum(as.numeric(Expertise)))
 ```
 
 ```
-# [[1]]
-# [1] 9
-# 
-# [[2]]
-# [1] 10
-# 
-# [[3]]
-# [1] 7
+# Error: object 'people' not found
 ```
 
 If we need more than one values for each member, we can evaluate a vector or list expression.
@@ -141,28 +98,7 @@ list.map(people, list(age=Age, range=range(as.numeric(Expertise))))
 ```
 
 ```
-# [[1]]
-# [[1]]$age
-# [1] 24
-# 
-# [[1]]$range
-# [1] 2 4
-# 
-# 
-# [[2]]
-# [[2]]$age
-# [1] 25
-# 
-# [[2]]$range
-# [1] 2 5
-# 
-# 
-# [[3]]
-# [[3]]$age
-# [1] 24
-# 
-# [[3]]$range
-# [1] 1 4
+# Error: object 'people' not found
 ```
 
 In some cases we need to refer to the item itself, or its index in the list, or even its name. In the expression, `.` represents the item itself, `.i` represents its index, and `.name` represents its name.
@@ -218,6 +154,8 @@ list.map(nums, paste0("name: ", .name))
 
 If the default symbols clash with the data, we can use lambda expression to specify other symbols. We will cover this later.
 
+> NOTE: rlist functions are general enough to work smoothly with vectors. `list.map()` works very much like `lapply()` so that the input will be finally transformed to list.
+
 ## list.mapv
 
 If we want to get the mapping results as a vector rather than a list, we can use `list.mapv()`, which basically calls `unlist()` to the list resulted from `list.map()`.
@@ -228,7 +166,7 @@ list.mapv(people, Age)
 ```
 
 ```
-# [1] 24 25 24
+# Error: object 'people' not found
 ```
 
 ```r
@@ -236,7 +174,7 @@ list.mapv(people, sum(as.numeric(Expertise)))
 ```
 
 ```
-# [1]  9 10  7
+# Error: object 'people' not found
 ```
 
 ## list.select
@@ -251,28 +189,7 @@ list.select(people, Name, Age)
 ```
 
 ```
-# [[1]]
-# [[1]]$Name
-# [1] "Ken"
-# 
-# [[1]]$Age
-# [1] 24
-# 
-# 
-# [[2]]
-# [[2]]$Name
-# [1] "James"
-# 
-# [[2]]$Age
-# [1] 25
-# 
-# 
-# [[3]]
-# [[3]]$Name
-# [1] "Penny"
-# 
-# [[3]]$Age
-# [1] 24
+# Error: object 'people' not found
 ```
 
 ```r
@@ -280,44 +197,14 @@ list.select(people, Name, Age, nlang=length(Expertise))
 ```
 
 ```
-# [[1]]
-# [[1]]$Name
-# [1] "Ken"
-# 
-# [[1]]$Age
-# [1] 24
-# 
-# [[1]]$nlang
-# [1] 3
-# 
-# 
-# [[2]]
-# [[2]]$Name
-# [1] "James"
-# 
-# [[2]]$Age
-# [1] 25
-# 
-# [[2]]$nlang
-# [1] 3
-# 
-# 
-# [[3]]
-# [[3]]$Name
-# [1] "Penny"
-# 
-# [[3]]$Age
-# [1] 24
-# 
-# [[3]]$nlang
-# [1] 3
+# Error: object 'people' not found
 ```
 
 ## list.iter
 
 Sometimes we don't really need the result of a mapping but its side effects. For example, if we only need to print out something about each list member, we don't need to carry on the output of mapping.
 
-`list.iter` performs iterations over a list and returns nothing.
+`list.iter()` performs iterations over a list and returns the input data invisibly for further data transformation.
 
 
 ```r
@@ -325,9 +212,7 @@ list.iter(people, cat(Name, ":", Age, "\n"))
 ```
 
 ```
-# Ken : 24 
-# James : 25 
-# Penny : 24
+# Error: object 'people' not found
 ```
 
 ## list.maps

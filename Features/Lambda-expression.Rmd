@@ -7,10 +7,7 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 Although the fields of each list element are directly accessible in the expression, sometimes we still need to access the list element itself, usually for its meta-information. Lambda expressions provide a mechanism that allows you to use default or customized meta-symbols to access the meta-information of the list element.
 
-In rlist package, all functions that work with expressions support the following types of lambda expressions.
-
-- Implicit lambda expression: An ordinary expression with no special syntax yet the fields of elements are directly accessible. 
-- Explicit lambda expression:
+In rlist package, all functions that work with expressions support implicit lambda expressions, that is, an ordinary expression with no special syntax yet the fields of elements are directly accessible. All functions working with expressions except `list.select()` also support explicit lambda expression including
     - Univariate lambda expression: In contrast to implicit lambda expression, the symbol that refers to the element is customized in the following formats:
         * `x ~ expression`
         * `f(x) ~ expression`
@@ -74,4 +71,4 @@ list.map(x,f(.,i) ~ . + i)
 list.map(x,.name)
 ```
 
-*Note that `list.select` does not support explicit lambda expressions.*
+> NOTE: `list.select` does not support explicit lambda expressions.

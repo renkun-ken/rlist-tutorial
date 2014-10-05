@@ -5,7 +5,7 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 # Joining
 
-`list.join()` joins two lists by certain expressions and `list.merge()` merges  a series of lists.
+`list.join()` joins two lists by certain expressions and `list.merge()` merges a series of named lists.
 
 ```{r}
 library(rlist)
