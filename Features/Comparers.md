@@ -10,23 +10,8 @@ In this page, we will introduce the usage of these comparers with filtering and 
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("data/sample.json")
-```
-
-```
-# Error: lexical error: invalid char in json text.
-#                                        data/sample.json
-#                      (right here) ------^
-```
-
-```r
-friends <- list.load("data/friends.json")
-```
-
-```
-# Error: lexical error: invalid char in json text.
-#                                        data/friends.json
-#                      (right here) ------^
+people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+friends <- list.load("http://renkun.me/rlist-tutorial/data/friends.json")
 ```
 
 ## Precise comparers
@@ -96,7 +81,15 @@ people %>>%
 ```
 
 ```
-# Error: object 'people' not found
+# List of 1
+#  $ :List of 4
+#   ..$ Name     : chr "Ken"
+#   ..$ Age      : int 24
+#   ..$ Interests: chr [1:3] "reading" "music" "movies"
+#   ..$ Expertise:List of 3
+#   .. ..$ R     : int 2
+#   .. ..$ CSharp: int 4
+#   .. ..$ Python: int 3
 ```
 
 Only people whose `Name` is exactly the same with character vector `"Ken"` will be singled out.
@@ -109,7 +102,9 @@ list.search(friends, identical(., "Ken"))
 ```
 
 ```
-# Error: object 'friends' not found
+# $Ken
+# $Ken$Name
+# [1] "Ken"
 ```
 
 Only values that are identical to character vector `"Ken"` will be put in the resulting list. We can also unlist the result.
@@ -120,7 +115,8 @@ list.search(friends, identical(., "Ken"), unlist = TRUE)
 ```
 
 ```
-# Error: object 'friends' not found
+# Ken.Name 
+#    "Ken"
 ```
 
 Then, we search all values identical to `c("Ken","Penny")`.
@@ -131,7 +127,9 @@ list.search(friends, identical(., c("Ken","Penny")))
 ```
 
 ```
-# Error: object 'friends' not found
+# $James
+# $James$Friends
+# [1] "Ken"   "Penny"
 ```
 
 Next, we search values exactly identical to numeric value `24`.
@@ -142,7 +140,7 @@ list.search(friends, identical(., 24))
 ```
 
 ```
-# Error: object 'friends' not found
+# named list()
 ```
 
 The result is none. If you are familiar with how function `identical()` works as we described, you should not feel surprised. If you take a look at the data,
@@ -153,7 +151,23 @@ str(friends)
 ```
 
 ```
-# Error: object 'friends' not found
+# List of 4
+#  $ Ken  :List of 3
+#   ..$ Name   : chr "Ken"
+#   ..$ Age    : int 24
+#   ..$ Friends: chr "James"
+#  $ James:List of 3
+#   ..$ Name   : chr "James"
+#   ..$ Age    : int 25
+#   ..$ Friends: chr [1:2] "Ken" "Penny"
+#  $ Penny:List of 3
+#   ..$ Name   : chr "Penny"
+#   ..$ Age    : int 24
+#   ..$ Friends: chr [1:2] "James" "David"
+#  $ David:List of 3
+#   ..$ Name   : chr "David"
+#   ..$ Age    : int 25
+#   ..$ Friends: chr "Penny"
 ```
 
 you will find that the ages are all stored as integers rather than numerics. Therefore, searching exact integers will work.
@@ -164,7 +178,14 @@ list.search(friends, identical(., 24L))
 ```
 
 ```
-# Error: object 'friends' not found
+# $Ken
+# $Ken$Age
+# [1] 24
+# 
+# 
+# $Penny
+# $Penny$Age
+# [1] 24
 ```
 
 ### Value comparer
@@ -179,7 +200,8 @@ list.search(friends, any(c("Ken","Penny") %in% .), unlist = TRUE)
 ```
 
 ```
-# Error: object 'friends' not found
+#       Ken.Name James.Friends1 James.Friends2     Penny.Name  David.Friends 
+#          "Ken"          "Ken"        "Penny"        "Penny"        "Penny"
 ```
 
 Similarly, we search all numeric and integer values equal to `24`.
@@ -190,7 +212,8 @@ list.search(friends, . == 24, c("numeric","integer"), unlist = TRUE)
 ```
 
 ```
-# Error: object 'friends' not found
+#   Ken.Age Penny.Age 
+#        24        24
 ```
 
 When the code above is being evaluated, all numeric vectors and integer vectors are evaluated by `. == 24` recursively in `friends` where `.` represents the vector.
@@ -216,7 +239,9 @@ people %>>%
 ```
 
 ```
-# Error: object 'people' not found
+#    Name Age
+# 1   Ken  24
+# 2 Penny  24
 ```
 
 Regular expression is flexible enough to represent a wide range of string patterns. There are plentiful websites introducing regular expressions:
