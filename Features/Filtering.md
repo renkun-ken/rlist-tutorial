@@ -389,6 +389,10 @@ people %>>%
 # [1] "Ken"   "Penny"
 ```
 
+## list.clean
+
+
+
 ## subset
 
 `subset()` is implemented for list object in a way that combines `list.filter()` and `list.map()`. This function basically filters a list while at the same time maps the qualified list elements by an expression.

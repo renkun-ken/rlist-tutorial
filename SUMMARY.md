@@ -14,6 +14,7 @@
     * [Searching](Features/Searching.md)
     * [Comparers](Features/Comparers.md)
     * [Input/Output](Features/Input-output.md)
+    * [Misc functions](Features/Misc-functions.md)
     * [Lambda expression](Features/Lambda-expression.md)
     * [List environment](Features/List-environment.md)
 * [Examples](Examples/README.md)
