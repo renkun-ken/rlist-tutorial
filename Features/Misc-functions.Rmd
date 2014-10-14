@@ -5,27 +5,77 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 # Misc functions
 
-rlist package provides functions for sorting list elements by a series of criteria.
-
-```{r}
-library(rlist)
-library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
-```
+rlist provides miscellaneous functions to assist data manipulation. These functions are mainly designed to alter the structure of an list object.
 
 ## list.append, list.prepend
 
+`list.append()` appends an element to a list and `list.prepend()` prepends an element to a list.
+
+```{r}
+library(rlist)
+list.append(list(a=1, b=1), c=1)
+list.prepend(list(b=1, c=2), a=0)
+```
+
+The function also works with vector.
+
+```{r}
+list.append(1:3, 4)
+list.prepend(1:3, 0)
+```
+
+The names of the vector can be well handled.
+
+```{r}
+list.append(c(a=1,b=2), c=3)
+list.prepend(c(b=2,c=3), a=1)
+```
+
 ## list.reverse
+
+`list.reverse()` simply reverses a list or vector.
+
+```{r}
+list.reverse(1:10)
+```
 
 ## list.sample
 
+```{r}
+
+```
+
 ## list.zip
+
+```{r}
+
+```
+
 
 ## list.rbind, list.cbind
 
+```{r}
+
+```
+
+
 ## list.stack
+
+```{r}
+
+```
+
 
 ## list.flatten
 
+```{r}
+
+```
+
+
 ## list.names
+
+```{r}
+
+```
 
