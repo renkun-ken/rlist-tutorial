@@ -39,39 +39,93 @@ list.prepend(c(b=2,c=3), a=1)
 list.reverse(1:10)
 ```
 
+## list.zip
+
+`list.zip()` combines multiple lists element-wisely. In other words, the function takes the first element from all parameters, and then the second, and so on.
+
+```{r}
+str(list.zip(a=c(1,2,3), b=c(4,5,6)))
+```
+
+The list elements need not be atomic vectors. They can be any lists.
+
+```{r}
+str(list.zip(x=list(1,"x"), y=list("y",2)))
+```
+
+The parameters do not have to be the same type.
+
+```{r}
+str(list.zip(x=c(1,2), y=list("x","y")))
+```
+
+## list.rbind, list.cbind
+
+`list.rbind()` binds atomic vectors by row and `list.cbind()` by column.
+
+```{r}
+scores <- list(score1=c(10,9,10),score2=c(8,9,6),score3=c(9,8,10))
+list.rbind(scores)
+list.cbind(scores)
+```
+
+Note that the two functions finally call `rbind()` and `cbind()`, respectively, which result in matrix or data frame.
+
+If a list of lists are supplied, then a matrix of `list` will be created.
+
+```{r}
+scores2 <- list(score1=list(10,9,10),
+  score2=list(8,9,6),type=list("a","b","a"))
+rscores2 <- list.rbind(scores2)
+rscores2
+```
+
+`rscores2` is a matrix of *lists* rather than atomic values.
+
+```{r}
+rscores2[1,1]
+rscores2[,1]
+```
+
+This is not a common practice and may lead to unexpected mistakes if one is not fully aware of it and take for granted that the extracted value should be an atomic value like a number or string. Therefore, it is not recommended to either `list.rbind()` or `list.cbind()` a list of lists.
+
+## list.stack
+
+To create a `data.frame` from a list of lists, use `list.stack()`. It is particularly useful when we want to transform a non-tabular data to a stage where it actually fits a tabular form.
+
+For example, a list of lists with the same single-entry fields can be transformed to a equivalent data frame.
+
+```{r}
+nontab <- list(list(type="A",score=10),list(type="B",score=9))
+list.stack(nontab)
+```
+
+For non-tabular data, we can select fields or columns in the data and *stack* the records together to create a data frame.
+
+```{r}
+library(pipeR)
+list.load("http://renkun.me/rlist-tutorial/data/sample.json") %>>%
+  list.select(Name, Age) %>>%
+  list.stack
+```
+
+## list.flatten
+
+`list` is powerful in its recursive nature. Sometimes, however, we don't need its recursive feature but want to *flatten* it so that all its child elements are put to the first level. 
+
+`list.flatten()` recursively extract all elements at all levels and put them to the first level.
+
+```{r}
+data <- list(list(a=1,b=2),list(c=1,d=list(x=1,y=2)))
+str(data)
+list.flatten(data)
+```
+
 ## list.sample
 
 ```{r}
 
 ```
-
-## list.zip
-
-```{r}
-
-```
-
-
-## list.rbind, list.cbind
-
-```{r}
-
-```
-
-
-## list.stack
-
-```{r}
-
-```
-
-
-## list.flatten
-
-```{r}
-
-```
-
 
 ## list.names
 
