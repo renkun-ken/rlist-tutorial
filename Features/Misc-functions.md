@@ -305,11 +305,79 @@ list.flatten(data)
 # [1] 2
 ```
 
-## list.sample
-
-
-
 ## list.names
 
+`list.names()` can be used to set names of list elements by expression.
 
 
+```r
+people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json") %>>%
+  list.select(Name, Age)
+str(people)
+```
+
+```
+# List of 3
+#  $ :List of 2
+#   ..$ Name: chr "Ken"
+#   ..$ Age : int 24
+#  $ :List of 2
+#   ..$ Name: chr "James"
+#   ..$ Age : int 25
+#  $ :List of 2
+#   ..$ Name: chr "Penny"
+#   ..$ Age : int 24
+```
+
+Note that the elements in `people` currently do not have names. In some cases, it would be nice to assign appropriate names to those elements so that the distinctive information can be preserved in list transformations.
+
+
+```r
+npeople <- people %>>% 
+  list.names(Name)
+str(npeople)
+```
+
+```
+# List of 3
+#  $ Ken  :List of 2
+#   ..$ Name: chr "Ken"
+#   ..$ Age : int 24
+#  $ James:List of 2
+#   ..$ Name: chr "James"
+#   ..$ Age : int 25
+#  $ Penny:List of 2
+#   ..$ Name: chr "Penny"
+#   ..$ Age : int 24
+```
+
+The names of the list elements can be preserved in various types of data manipulation. For example,
+
+
+```r
+npeople %>>%
+  list.mapv(Age)
+```
+
+```
+#   Ken James Penny 
+#    24    25    24
+```
+
+The names of the resulted vector exactly come from the names of the list elements.
+
+## list.sample
+
+Sometimes it is useful to take a sample from a list. If it is a weighted sampling, the weights are in most cases related with individual subjects. `list.sample()` is a wrapper function of the built-in `sample()` but provides `weight` argument as an expression to evaluate for each list element to determine the weight of that element.
+
+The following example shows a simple sampling from integers 1-10 by weight of squares.
+
+
+```r
+set.seed(0)
+list.sample(1:10, size = 3, weight = .^2)
+```
+
+```
+# [1]  5 10  8
+```
