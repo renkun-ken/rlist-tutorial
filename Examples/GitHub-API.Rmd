@@ -3,5 +3,26 @@ opts_knit$set(base.dir='./', fig.path='', out.format='md')
 opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup')
 ```
 
-# Exploring GitHub API
+# GitHub API
 
+[GitHub](https://github.com/) is the most famous web-based source code hosting service in the world. Millions of developers choose GitHub to host their public code repositories. Many R packages are hosted by GitHub too.
+
+In addition to the rich features it provides in project development and collaboration, GitHub also opens its [API](https://api.github.com/) for developers to query the meta-data of users and repos. For example, we can directly get the following data:
+
+- [My public profile on GitHub](https://api.github.com/users/renkun-ken)
+- [Profile of rlist package](https://api.github.com/repos/renkun-ken/rlist)
+- [All my repos on GitHub](https://api.github.com/users/renkun-ken/repos)
+
+If you visit the links in your web browser, you will see the data presented in JSON format.
+
+To make the data exploration more interesting, in the following examples we will explore [Hadley Wickham](https://github.com/hadley)'s GitHub data with functions provided in rlist and see how rlist makes it easier to work with such non-tabular data structures.
+
+```{r}
+library(rlist)
+library(pipeR)
+repos <- "https://api.github.com/users/hadley/repos?per_page=100&page=%d" %>>%
+  sprintf(1:5) %>>%
+  list.map(list.load(., type = "json")) %>>%
+  list.takeWhile(length(.) > 0L) %>>%
+  list.ungroup
+```
