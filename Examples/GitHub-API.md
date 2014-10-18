@@ -21,9 +21,8 @@ We load rlist and pipeR packages first and then retrieve the repos.
 library(rlist)
 library(pipeR)
 repos <- "https://api.github.com/users/hadley/repos?per_page=100&page=%d" %>>%
-  sprintf(1:5) %>>%
-  list.map(list.load(., type = "json")) %>>%
-  list.takeWhile(length(.) > 0L) %>>%
+  sprintf(1:2) %>>%
+  list.load("json") %>>%
   list.ungroup
 ```
 
@@ -184,7 +183,7 @@ repos %>>%
 
 ```
 # stargazers_count   watchers_count      forks_count 
-#             5339             5339             2114
+#             5339             5339             2117
 ```
 
 We can also use fuzzy matching devices when we are not exactly sure about the term we need to find. For example, if you hear from a friend that Hadley's *dplayer* package is awesome but you cannot find the package by its name. To find out the exact name of the that package we can use soundex measurement in stringdist package.

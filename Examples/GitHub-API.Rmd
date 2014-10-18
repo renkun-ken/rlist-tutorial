@@ -23,9 +23,8 @@ We load rlist and pipeR packages first and then retrieve the repos.
 library(rlist)
 library(pipeR)
 repos <- "https://api.github.com/users/hadley/repos?per_page=100&page=%d" %>>%
-  sprintf(1:5) %>>%
-  list.map(list.load(., type = "json")) %>>%
-  list.takeWhile(length(.) > 0L) %>>%
+  sprintf(1:2) %>>%
+  list.load("json") %>>%
   list.ungroup
 ```
 
