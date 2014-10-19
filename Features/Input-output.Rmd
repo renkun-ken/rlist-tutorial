@@ -62,11 +62,11 @@ If we are sure about the data structure of the resulted list and want to convert
 
 ## list.load, list.save
 
-`list.load()` is used to load list data from a JSON, YAML, or RData file. Its default behavior is to first look at file extension and then determine which data loader is used. If the file extension does not match JSON or YAML, it will use RData loader.
+`list.load()` is used to load list data from a JSON, YAML, RData, or RDS file. Its default behavior is to first look at file extension and then determine which data loader is used. If the file extension does not match JSON or YAML, it will use RData loader.
 
-`list.save()` is used to save a list to a JSON, YAML, or RData file. Its default behavior is similar with that of `list.load()`.
+`list.save()` is used to save a list to a JSON, YAML, RData, or RDS file. Its default behavior is similar with that of `list.load()`.
 
-If the data are read or written by these two functions in JSON or YAML format, the data will be human-readable. However, if a list contains complex objects such as S4 objects and language objects, the text-based format may not be appropriate to store such objects. You should consider storing them in binary format, i.e. RData file or serialize the object.
+If the data are read or written by these two functions in JSON or YAML format, the data will be human-readable. However, if a list contains complex objects such as S4 objects and language objects, the text-based format may not be appropriate to store such objects. You should consider storing them in binary format, i.e. RData or RDS  file, or serialize the object.
 
 ## list.serialize, list.unserialize
 
