@@ -1,0 +1,90 @@
+```{r knitsetup, echo=FALSE, results='hide', warning=FALSE, message=FALSE, cache=FALSE}
+opts_knit$set(base.dir='./', fig.path='', out.format='md')
+opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup')
+```
+
+# Weather API
+
+## Current weather data
+
+```{r}
+library(rlist)
+library(pipeR)
+weather <- "http://api.openweathermap.org/data/2.5/weather?q=%s" %>>%
+  sprintf(c("New York,us", "London,uk")) %>>%
+  list.load("json") %>>%
+  list.names(name)
+```
+
+```{r}
+zone <- "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes" %>>%
+  list.load("json")
+```
+
+```{r}
+zone$list %>>% 
+  list.mapv(name)
+```
+
+```{r}
+zone$list %>>% 
+  list.table(weather %>>% list.mapv(main))
+```
+
+```{r}
+zone$list %>>%
+  list.group(weather[[1L]]$main) %>>%
+  list.map(. %>>% list.mapv(name))
+```
+
+```{r}
+zonedf <- zone$list %>>%
+  list.select(id, name, 
+    coord_lon = coord$lon, coord_lat = coord$lat, 
+    temp = main$temp, weather = weather[[1L]]$main) %>>%
+  list.stack %>>%
+  print
+```
+
+```{r}
+zonedf %>>%
+  lm(formula = temp ~ coord_lon + coord_lat) %>>%
+  summary
+```
+
+## Forecast data
+
+```{r}
+forecast <- "http://api.openweathermap.org/data/2.5/forecast?q=London,uk" %>>%
+  list.load("json")
+```
+
+```{r}
+fxts <- forecast$list %>>%
+  list.select(dt = as.POSIXct(dt_txt), temp = main$temp, humidity = main$humidity) %>>%
+  list.stack %>>%
+  (xts::xts(x = .[-1L], order.by = .$dt))
+head(fxts)
+```
+
+```{r forecast,fig.width=10,fig.height=5}
+par(mfrow=c(2,1))
+plot(fxts$temp)
+plot(fxts$humidity)
+```
+
+## Historical data
+
+```{r}
+unixdt <- function(date) {
+  as.integer(as.POSIXct(date, tz = "UTC"))
+}
+```
+
+
+```{r}
+history <- "http://api.openweathermap.org/data/2.5/history/city?q=%s&start=%d&cnt=%d" %>>%
+  sprintf("New York,us", unixdt("2014-10-01 00:00:00"), 100) %>>%
+  list.load("json")
+```
+
