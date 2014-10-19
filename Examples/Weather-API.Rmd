@@ -5,7 +5,11 @@ opts_chunk$set(prompt=FALSE, comment='#', fig.align = 'center', results='markup'
 
 # Weather API
 
+[OpenWeatherMap](http://openweathermap.org/) provides a set of [weather API](http://openweathermap.org/api) that is simple, clear and free. Using the API, we get access to not only the current weather data, forecasts, historical data, and so on. The returned data is by default presented in JSON format, which can be easily loaded and processed by rlist functions.
+
 ## Current weather data
+
+The following code downloads the latest weather data of New York and London.
 
 ```{r}
 library(rlist)
@@ -16,26 +20,45 @@ weather <- "http://api.openweathermap.org/data/2.5/weather?q=%s" %>>%
   list.names(name)
 ```
 
+`list.load()` in the latest development version of rlist supports loading multiple files given by a character vector. Here we use `sprintf()` to construct a character vector provided the URL template of a weather data query.
+
 ```{r}
-zone <- "http://api.openweathermap.org/data/2.5/box/city?bbox=12,32,15,37,10&cluster=yes" %>>%
+str(weather)
+```
+
+We can see that `weather` includes the the information of the city as well as the weather.
+
+The weather API also supports box searching, that is, search data from cities within the defined rectangle specified by the geographic coordinates. `bbox` indicates the bounding box of the following parameters: lat of the top left point, lon of the top left point, lat of the bottom right point, lon of the bottom right point, map zoom.
+
+```{r}
+zone <- "http://api.openweathermap.org/data/2.5/box/city?bbox=%s&cluster=yes" %>>%
+  sprintf("12,32,15,37,10") %>>%
   list.load("json")
 ```
+
+Once we get the data, we can see the names of the cities in the zone.
 
 ```{r}
 zone$list %>>% 
   list.mapv(name)
 ```
 
+We can also build a table that shows the weather condition of these cities.
+
 ```{r}
 zone$list %>>% 
-  list.table(weather %>>% list.mapv(main))
+  list.table(weather[[1L]]$main)
 ```
+
+For more details, we can group the data by weather condition and see the name list for each type of weather.
 
 ```{r}
 zone$list %>>%
   list.group(weather[[1L]]$main) %>>%
   list.map(. %>>% list.mapv(name))
 ```
+
+Sometimes it is easier to work with data frame for vectorization and model research. For example, we can build a data frame from the non-tabular data by *stacking* the list elements with selected fields.
 
 ```{r}
 zonedf <- zone$list %>>%
@@ -46,6 +69,8 @@ zonedf <- zone$list %>>%
   print
 ```
 
+The data frame well fits the input of most models.
+
 ```{r}
 zonedf %>>%
   lm(formula = temp ~ coord_lon + coord_lat) %>>%
@@ -54,26 +79,35 @@ zonedf %>>%
 
 ## Forecast data
 
+The weather API provides give access to the forecast data. Here we get the forecast data of the London city.
+
 ```{r}
 forecast <- "http://api.openweathermap.org/data/2.5/forecast?q=London,uk" %>>%
   list.load("json")
 ```
 
+The forecast incorporates some meta-information such as the city data and message retrieval data. We can easily transform the forecast points to an `xts` object as a time series.
+
 ```{r}
 fxts <- forecast$list %>>%
-  list.select(dt = as.POSIXct(dt_txt), temp = main$temp, humidity = main$humidity) %>>%
+  list.select(dt = as.POSIXct(dt_txt), 
+    temp = main$temp, humidity = main$humidity) %>>%
   list.stack %>>%
   (xts::xts(x = .[-1L], order.by = .$dt))
 head(fxts)
 ```
 
-```{r forecast,fig.width=10,fig.height=5}
+As long as the data we are interested in is converted to a time series, we can easily create graphics from it.
+
+```{r weather-forecast,fig.width=10,fig.height=5}
 par(mfrow=c(2,1))
-plot(fxts$temp)
-plot(fxts$humidity)
+plot(fxts$temp, main = "Forecast temperature of London")
+plot(fxts$humidity, main = "Forecast humidity of London")
 ```
 
 ## Historical data
+
+The weather API allows us to access the historical weather database. The database adopts UNIX Date/Time standard for which we define `unixdt()` to better transform human-readable date/time to numbers included in the data query.
 
 ```{r}
 unixdt <- function(date) {
@@ -81,10 +115,46 @@ unixdt <- function(date) {
 }
 ```
 
+The following code queries the hourly historical data of New York from `2014-10-01 00:00:00` and get the maximal number of records a free account is allowed.
 
 ```{r}
-history <- "http://api.openweathermap.org/data/2.5/history/city?q=%s&start=%d&cnt=%d" %>>%
-  sprintf("New York,us", unixdt("2014-10-01 00:00:00"), 100) %>>%
+history <- "http://api.openweathermap.org/data/2.5/history/city?&q=%s&start=%d&cnt=200" %>>%
+  sprintf("New York,us", unixdt("2014-10-01 00:00:00")) %>>%
   list.load("json")
+```
+
+Once the historical data is ready, we can get some simple impression on it. For example, we can see the weather distribution.
+
+```{r}
+history$list %>>%
+  list.table(weather = weather[[1L]]$main) %>>%
+  list.sort(-.)
+```
+
+We can also inspect the location statistics of humidity data for each weather condition.
+
+```{r}
+history$list %>>%
+  list.group(weather[[1L]]$main) %>>%
+  list.map(. %>>% 
+      list.mapv(main$humidity) %>>% 
+      summary)
+```
+
+Or we can create an `xts` object from it.
+
+```{r}
+nyxts <- history$list %>>%
+  list.select(dt = as.POSIXct(dt, origin = "1970-01-01"), 
+    temp = main$temp, humidity = main$humidity) %>>%
+  list.stack %>>%
+  (xts::xts(x = .[-1L], order.by = .$dt))
+head(nyxts)
+```
+
+The object facilitates time series operations but also can be used in time series model fitting.
+
+```{r}
+forecast::auto.arima(nyxts$temp)
 ```
 

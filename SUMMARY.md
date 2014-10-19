@@ -19,3 +19,5 @@
     * [List environment](Features/List-environment.md)
 * [Examples](Examples/README.md)
     * [GitHub API](Examples/GitHub-API.md)
+    * [Weather API](Examples/Weather-API.md)
+    
