@@ -391,7 +391,69 @@ people %>>%
 
 ## list.clean
 
+`list.clean()` is used to clean a list by a function either recursively or not. The function can be built-in function like `is.null()` to remove all `NULL` values from the list, or can be user-defined function like `function(x) length(x) == 0` to remove all empty objects like `NULL`, `character(0L)`, etc.
 
+
+```r
+x <- list(a=1, b=NULL, c=list(x=1,y=NULL,z=logical(0L),w=c(NA,1)))
+str(x)
+```
+
+```
+# List of 3
+#  $ a: num 1
+#  $ b: NULL
+#  $ c:List of 4
+#   ..$ x: num 1
+#   ..$ y: NULL
+#   ..$ z: logi(0) 
+#   ..$ w: num [1:2] NA 1
+```
+
+To clear all `NULL` values in the list recursively, we can call
+
+
+```r
+str(list.clean(x, recursive = TRUE))
+```
+
+```
+# List of 2
+#  $ a: num 1
+#  $ c:List of 3
+#   ..$ x: num 1
+#   ..$ z: logi(0) 
+#   ..$ w: num [1:2] NA 1
+```
+
+To remove all empty values including `NULL` and zero-length vectors, we can call
+
+
+```r
+str(list.clean(x, function(x) length(x) == 0L, recursive = TRUE))
+```
+
+```
+# List of 2
+#  $ a: num 1
+#  $ c:List of 2
+#   ..$ x: num 1
+#   ..$ w: num [1:2] NA 1
+```
+
+The function can also be related to missing values. For example, exclude all empty values and vectors with at least `NA`s.
+
+
+```r
+str(list.clean(x, function(x) length(x) == 0L || anyNA(x), recursive = TRUE))
+```
+
+```
+# List of 2
+#  $ a: num 1
+#  $ c:List of 1
+#   ..$ x: num 1
+```
 
 ## subset
 
