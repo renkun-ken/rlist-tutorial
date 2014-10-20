@@ -2,7 +2,7 @@
 
 # Input/Output
 
-rlist provides various mechanisms for list data input/output. 
+rlist provides various mechanisms for list data input and output. 
 
 ## list.parse
 
@@ -12,7 +12,7 @@ rlist provides various mechanisms for list data input/output.
 ```r
 library(rlist)
 df1 <- data.frame(name=c("Ken","Ashley","James"),
-  age=c(24,25,23),stringsAsFactors = FALSE)
+  age=c(24,25,23), stringsAsFactors = FALSE)
 str(list.parse(df1))
 ```
 
@@ -37,7 +37,7 @@ jsontext <- '
 [{ "name": "Ken", "age": 24 },
  { "name": "Ashley", "age": 25},
  { "name": "James", "age": 23 }]'
-str(list.parse(jsontext,type="json"))
+str(list.parse(jsontext, "json"))
 ```
 
 ```
@@ -66,7 +66,7 @@ p3:
   name: James
   age: 23
 "
-str(list.parse(yamltext,type="yaml"))
+str(list.parse(yamltext, "yaml"))
 ```
 
 ```
@@ -92,7 +92,7 @@ jsontext <- '
 [{ "name": "Ken", "age": 24 },
  { "name": "Ashley", "age": 25},
  { "name": "James", "age": 23 }]'
-data <- list.parse(jsontext,type="json")
+data <- list.parse(jsontext, "json")
 list.stack(data)
 ```
 
@@ -109,11 +109,13 @@ If we are sure about the data structure of the resulted list and want to convert
 
 ## list.load, list.save
 
-`list.load()` is used to load list data from a JSON, YAML, RData, or RDS file. Its default behavior is to first look at file extension and then determine which data loader is used. If the file extension does not match JSON or YAML, it will use RData loader.
+`list.load()` loads data from a JSON, YAML, RData, or RDS file. Its default behavior is to first look at file extension and then determine which data loader is used. If the file extension does not match JSON or YAML, it will use RData loader.
 
-`list.save()` is used to save a list to a JSON, YAML, RData, or RDS file. Its default behavior is similar with that of `list.load()`.
+`list.save()` saves a list to a JSON, YAML, RData, or RDS file. Its default behavior is similar with that of `list.load()`.
 
-If the data are read or written by these two functions in JSON or YAML format, the data will be human-readable. However, if a list contains complex objects such as S4 objects and language objects, the text-based format may not be appropriate to store such objects. You should consider storing them in binary format, i.e. RData or RDS  file, or serialize the object.
+If the data are read or written by these two functions in JSON or YAML format, the data will be text-based and thus friendly for human reader. However, if a list contains complex objects such as S4 objects and language objects, the text-based format may not be appropriate to store such objects. You should consider storing them in binary format, i.e. RData or RDS file.
+
+> NOTE: RData file is created by `save()` and can be loaded by `load()`. It usually stores an environment in which multiple objects are binded. RDS file is created by `saveRDS()` and can be loaded by `readRDS()`. It usually stores an R object directly.
 
 ## list.serialize, list.unserialize
 
