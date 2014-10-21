@@ -336,7 +336,7 @@ list.iter(people, cat(Name, ":", Age, "\n"))
 
 ## list.maps
 
-All the previous functions work with a single list. There are scenarios where mapping multiple lists is needed. `list.maps()` evaluates an expression with multiple lists each of which is represented by a user-defined symbol at the function call.
+All the previous functions work with a single list. However, there are scenarios where mapping multiple lists is needed. `list.maps()` evaluates an expression with multiple lists each of which is represented by a user-defined symbol at the function call.
 
 
 ```r
@@ -359,3 +359,21 @@ list.maps(a$x*b+a$y, a=l1, b=l2)
 `list.maps()` does not follow the conventions of many other functions like `list.map()` and `list.iter()` where the data comes first and expression comes the second. Since `list.maps()` supports multi-mapping with a group of lists, only implicit lambda expression is supported to avoid ambiguity. After that the function still allows users to define the symbol that represents each list being mapped in `...`.
 
 In the example above, `...` means `a = l1, b = l2`, so that `a` and `b` are meaningful in the first expression `a$x*b+a$y` where `a` and `b` mean the iterating element of each list, respectively.
+
+The function does not require named be supplied with the lists as arguments. In this case, we can use `..1`, `..2`, etc. to refer to the first, second or other lists.
+
+
+```r
+list.maps(..1$x*..2 + ..1$y, l1, l2)
+```
+
+```
+# $p1
+# [1] 4
+# 
+# $p2
+# [1] 13
+# 
+# $p3
+# [1] 8
+```
