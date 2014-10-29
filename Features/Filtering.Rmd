@@ -89,11 +89,29 @@ people %>>%
 Similar with `list.find()`, `list.findi()` only returns the index of the elements found.
 
 ```{r}
-people %>>%
-  list.findi(Age >= 23, 2)
+list.findi(people, Age >= 23, 2)
 ```
 
 You may verify that if the number of instances to find is greater than the actual number of instances in the data, all qualified instances will be returned.
+
+## list.first, list.last
+
+`list.first()` and `list.last()` are used to find the first and last element that meets certain condition if specified, respectively.
+
+```{r}
+str(list.first(people, Age >= 23))
+```
+
+```{r}
+str(list.last(people, Age >= 23))
+```
+
+These two functions also works when the condition is missing. In this case, they simply take out the first/last element from the list or vector.
+
+```{r}
+list.first(1:10)
+list.last(1:10)
+```
 
 ## list.take
 

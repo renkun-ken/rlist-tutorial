@@ -126,8 +126,7 @@ Similar with `list.find()`, `list.findi()` only returns the index of the element
 
 
 ```r
-people %>>%
-  list.findi(Age >= 23, 2)
+list.findi(people, Age >= 23, 2)
 ```
 
 ```
@@ -135,6 +134,61 @@ people %>>%
 ```
 
 You may verify that if the number of instances to find is greater than the actual number of instances in the data, all qualified instances will be returned.
+
+## list.first, list.last
+
+`list.first()` and `list.last()` are used to find the first and last element that meets certain condition if specified, respectively.
+
+
+```r
+str(list.first(people, Age >= 23))
+```
+
+```
+# List of 4
+#  $ Name     : chr "Ken"
+#  $ Age      : int 24
+#  $ Interests: chr [1:3] "reading" "music" "movies"
+#  $ Expertise:List of 3
+#   ..$ R     : int 2
+#   ..$ CSharp: int 4
+#   ..$ Python: int 3
+```
+
+
+```r
+str(list.last(people, Age >= 23))
+```
+
+```
+# List of 4
+#  $ Name     : chr "Penny"
+#  $ Age      : int 24
+#  $ Interests: chr [1:2] "movies" "reading"
+#  $ Expertise:List of 3
+#   ..$ R     : int 1
+#   ..$ Cpp   : int 4
+#   ..$ Python: int 2
+```
+
+These two functions also works when the condition is missing. In this case, they simply take out the first/last element from the list or vector.
+
+
+```r
+list.first(1:10)
+```
+
+```
+# [1] 1
+```
+
+```r
+list.last(1:10)
+```
+
+```
+# [1] 10
+```
 
 ## list.take
 
