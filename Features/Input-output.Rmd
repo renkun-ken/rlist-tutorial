@@ -70,6 +70,8 @@ If the data are read or written by these two functions in JSON or YAML format, t
 
 > NOTE: RData file is created by `save()` and can be loaded by `load()`. It usually stores an environment in which multiple objects are binded. RDS file is created by `saveRDS()` and can be loaded by `readRDS()`. It usually stores an R object directly.
 
+`list.load()` in the latest version supports loading files specified by a character vector. It also supports loading files without file extensions by iteratively loading files by JSON and YAML loader.
+
 ## list.serialize, list.unserialize
 
 Serialization is the process that stores an object into fully-recoverable data format. `list.serialize()` and `list.deserialize()` provides the mechanism to capitalize the R native serializer/unserializer and JSON serializer/unserializer provided by `jsonlite`.
