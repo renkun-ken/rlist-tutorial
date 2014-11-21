@@ -21,8 +21,7 @@ list.search(friends, . == "Ken")
 ```
 
 ```
-# $Ken
-# $Ken$Name
+# $Ken.Name
 # [1] "Ken"
 ```
 
@@ -36,13 +35,10 @@ list.search(friends, "Ken" %in% .)
 ```
 
 ```
-# $Ken
-# $Ken$Name
+# $Ken.Name
 # [1] "Ken"
 # 
-# 
-# $James
-# $James$Friends
+# $James.Friends
 # [1] "Ken"   "Penny"
 ```
 
@@ -54,13 +50,10 @@ list.search(friends, .[. == "Ken"])
 ```
 
 ```
-# $Ken
-# $Ken$Name
+# $Ken.Name
 # [1] "Ken"
 # 
-# 
-# $James
-# $James$Friends
+# $James.Friends
 # [1] "Ken"
 ```
 
@@ -72,23 +65,16 @@ list.search(friends, .[grepl("en",.)])
 ```
 
 ```
-# $Ken
-# $Ken$Name
+# $Ken.Name
 # [1] "Ken"
 # 
-# 
-# $James
-# $James$Friends
+# $James.Friends
 # [1] "Ken"   "Penny"
 # 
-# 
-# $Penny
-# $Penny$Name
+# $Penny.Name
 # [1] "Penny"
 # 
-# 
-# $David
-# $David$Friends
+# $David.Friends
 # [1] "Penny"
 ```
 
@@ -100,13 +86,10 @@ list.search(friends, . == "24")
 ```
 
 ```
-# $Ken
-# $Ken$Age
+# $Ken.Age
 # [1] 24
 # 
-# 
-# $Penny
-# $Penny$Age
+# $Penny.Age
 # [1] 24
 ```
 
@@ -154,8 +137,9 @@ list.search(friends, .[grepl("en",.)], "character", n = 3, unlist = TRUE)
 ```
 
 ```
-#       Ken.Name James.Friends1 James.Friends2 
-#          "Ken"          "Ken"        "Penny"
+#       Ken.Name James.Friends1 James.Friends2     Penny.Name 
+#          "Ken"          "Ken"        "Penny"        "Penny"
 ```
 
-Like other rlist functions, the search expression can be a lambda expression. However, `list.search()` does not support index and name meta-sybmols in search expression yet. In other words, you cannot use `.i` or `.name` other user-defined symbols to represent either the index or the name of the element.
+Like other rlist functions, the search expression can be a lambda expression. However, `list.search()` does not name meta-sybmol in search expression yet. In other words, you cannot use `.name` to represent the name of the element. You can use `.i` to represent the number of vectors that has been checked, and `.n` to represent the number of vectors that satisfy the condition.
+

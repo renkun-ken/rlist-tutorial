@@ -73,4 +73,5 @@ Sometimes, we don't need that many results to be found. We can set `n =` to limi
 list.search(friends, .[grepl("en",.)], "character", n = 3, unlist = TRUE)
 ```
 
-Like other rlist functions, the search expression can be a lambda expression. However, `list.search()` does not support index and name meta-sybmols in search expression yet. In other words, you cannot use `.i` or `.name` other user-defined symbols to represent either the index or the name of the element.
+Like other rlist functions, the search expression can be a lambda expression. However, `list.search()` does not name meta-sybmol in search expression yet. In other words, you cannot use `.name` to represent the name of the element. You can use `.i` to represent the number of vectors that has been checked, and `.n` to represent the number of vectors that satisfy the condition.
+
