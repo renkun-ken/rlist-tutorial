@@ -23,6 +23,12 @@ list.search(friends, . == "Ken")
 ```
 # $Ken.Name
 # [1] "Ken"
+# 
+# $James.Friends
+# [1]  TRUE FALSE
+# 
+# $Penny.Friends
+# [1] FALSE FALSE
 ```
 
 Note that `.` represents every atomic vector in the list and sublists. For single-valued vector, the search expression results in `TRUE` or `FALSE` indicating whether or not to return the text of the character vector. For multi-valued vector, the search expression instead results in mutli-valued logical vector which will be considered invalid as search results.
@@ -89,8 +95,14 @@ list.search(friends, . == "24")
 # $Ken.Age
 # [1] 24
 # 
+# $James.Friends
+# [1] FALSE FALSE
+# 
 # $Penny.Age
 # [1] 24
+# 
+# $Penny.Friends
+# [1] FALSE FALSE
 ```
 
 the integer value will be returned too. It is because when R evaluates the following expression
@@ -112,7 +124,11 @@ list.search(friends, . == "24", classes = "character")
 ```
 
 ```
-# named list()
+# $James.Friends
+# [1] FALSE FALSE
+# 
+# $Penny.Friends
+# [1] FALSE FALSE
 ```
 
 This time no character value is found to equal *24*. To improve the search performance and safety, it is always recommended to explicitly specify the classes to search so as to avoid undesired coercion which might lead to unexpected results.

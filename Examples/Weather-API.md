@@ -31,67 +31,68 @@ str(weather)
 #   ..$ coord  :List of 2
 #   .. ..$ lon: num -74
 #   .. ..$ lat: num 40.7
-#   ..$ sys    :List of 6
-#   .. ..$ type   : int 1
-#   .. ..$ id     : int 1975
-#   .. ..$ message: num 0.0338
+#   ..$ sys    :List of 4
+#   .. ..$ message: num 0.0179
 #   .. ..$ country: chr "US"
-#   .. ..$ sunrise: int 1413717136
-#   .. ..$ sunset : int 1413756569
+#   .. ..$ sunrise: int 1420805973
+#   .. ..$ sunset : int 1420840025
 #   ..$ weather:List of 1
 #   .. ..$ :List of 4
-#   .. .. ..$ id         : int 803
+#   .. .. ..$ id         : int 804
 #   .. .. ..$ main       : chr "Clouds"
-#   .. .. ..$ description: chr "broken clouds"
+#   .. .. ..$ description: chr "overcast clouds"
 #   .. .. ..$ icon       : chr "04d"
 #   ..$ base   : chr "cmc stations"
-#   ..$ main   :List of 5
-#   .. ..$ temp    : num 284
-#   .. ..$ pressure: int 1013
-#   .. ..$ humidity: int 57
-#   .. ..$ temp_min: num 282
-#   .. ..$ temp_max: num 285
-#   ..$ wind   :List of 3
-#   .. ..$ speed: num 8.7
-#   .. ..$ deg  : int 310
-#   .. ..$ gust : num 12.3
+#   ..$ main   :List of 7
+#   .. ..$ temp      : num 267
+#   .. ..$ temp_min  : num 267
+#   .. ..$ temp_max  : num 267
+#   .. ..$ pressure  : num 1015
+#   .. ..$ sea_level : num 1030
+#   .. ..$ grnd_level: num 1015
+#   .. ..$ humidity  : int 71
+#   ..$ wind   :List of 2
+#   .. ..$ speed: num 3.62
+#   .. ..$ deg  : num 227
 #   ..$ clouds :List of 1
-#   .. ..$ all: int 75
-#   ..$ dt     : int 1413731619
+#   .. ..$ all: int 92
+#   ..$ dt     : int 1420806501
 #   ..$ id     : int 5128581
 #   ..$ name   : chr "New York"
 #   ..$ cod    : int 200
-#  $ London  :List of 11
+#  $ London  :List of 12
 #   ..$ coord  :List of 2
 #   .. ..$ lon: num -0.13
 #   .. ..$ lat: num 51.5
 #   ..$ sys    :List of 6
-#   .. ..$ type   : int 1
-#   .. ..$ id     : int 5091
-#   .. ..$ message: num 0.176
+#   .. ..$ type   : int 3
+#   .. ..$ id     : int 60992
+#   .. ..$ message: num 0.0324
 #   .. ..$ country: chr "GB"
-#   .. ..$ sunrise: int 1413700331
-#   .. ..$ sunset : int 1413737916
+#   .. ..$ sunrise: int 1420790595
+#   .. ..$ sunset : int 1420819930
 #   ..$ weather:List of 1
 #   .. ..$ :List of 4
-#   .. .. ..$ id         : int 802
+#   .. .. ..$ id         : int 801
 #   .. .. ..$ main       : chr "Clouds"
-#   .. .. ..$ description: chr "scattered clouds"
-#   .. .. ..$ icon       : chr "03d"
+#   .. .. ..$ description: chr "few clouds"
+#   .. .. ..$ icon       : chr "02d"
 #   ..$ base   : chr "cmc stations"
 #   ..$ main   :List of 5
-#   .. ..$ temp    : num 292
-#   .. ..$ pressure: int 1013
-#   .. ..$ humidity: int 56
-#   .. ..$ temp_min: num 290
-#   .. ..$ temp_max: num 293
+#   .. ..$ temp    : num 285
+#   .. ..$ humidity: int 81
+#   .. ..$ pressure: num 1019
+#   .. ..$ temp_min: num 285
+#   .. ..$ temp_max: num 285
 #   ..$ wind   :List of 3
-#   .. ..$ speed: num 7.7
-#   .. ..$ deg  : int 230
-#   .. ..$ gust : num 12.9
+#   .. ..$ speed: int 1
+#   .. ..$ gust : num 8.8
+#   .. ..$ deg  : int 270
+#   ..$ rain   :List of 1
+#   .. ..$ 3h: int 0
 #   ..$ clouds :List of 1
-#   .. ..$ all: int 40
-#   ..$ dt     : int 1413728871
+#   .. ..$ all: int 24
+#   ..$ dt     : int 1420804144
 #   ..$ id     : int 2643743
 #   ..$ name   : chr "London"
 #   ..$ cod    : int 200
@@ -133,7 +134,7 @@ zone$list %>>%
 ```
 # 
 #  Clear Clouds 
-#     14      1
+#      5     10
 ```
 
 For more details, we can group the data by weather condition and see the name list for each type of weather.
@@ -147,12 +148,11 @@ zone$list %>>%
 
 ```
 # $Clear
-#  [1] "Gharyan"    "Ragusa"     "Rosolini"   "Modica"     "Pozzallo"  
-#  [6] "Zlitan"     "Al Khums"   "Yafran"     "Sabratah"   "Zuwarah"   
-# [11] "Masallatah" "Tarhuna"    "Tripoli"    "Zawiya"    
+# [1] "Ragusa"   "Rosolini" "Modica"   "Pozzallo" "Tripoli" 
 # 
 # $Clouds
-# [1] "Birkirkara"
+#  [1] "Gharyan"    "Birkirkara" "Zlitan"     "Al Khums"   "Yafran"    
+#  [6] "Sabratah"   "Zuwarah"    "Masallatah" "Tarhuna"    "Zawiya"
 ```
 
 Sometimes it is easier to work with data frame for vectorization and model research. For example, we can build a data frame from the non-tabular data by *stacking* the list elements with selected fields.
@@ -169,21 +169,21 @@ zonedf <- zone$list %>>%
 
 ```
 #         id       name coord_lon coord_lat  temp weather
-# 1  2217362    Gharyan  13.02028  32.17222 29.49   Clear
+# 1  2217362    Gharyan  13.02028  32.17222 13.51  Clouds
 # 2  2523650     Ragusa  14.71719  36.92824 32.97   Clear
-# 3  2523581   Rosolini  14.94779  36.82424 24.49   Clear
-# 4  2524119     Modica  14.77399  36.84594 24.18   Clear
+# 3  2523581   Rosolini  14.94779  36.82424 14.76   Clear
+# 4  2524119     Modica  14.77399  36.84594 14.76   Clear
 # 5  2523693   Pozzallo  14.84989  36.73054 24.37   Clear
-# 6  2563191 Birkirkara  14.46111  35.89722 25.52  Clouds
-# 7  2208485     Zlitan  14.56874  32.46738 28.73   Clear
-# 8  2219905   Al Khums  14.26191  32.64861 28.73   Clear
-# 9  2208791     Yafran  12.52859  32.06329 30.49   Clear
-# 10 2212771   Sabratah  12.48845  32.79335 30.49   Clear
-# 11 2208425    Zuwarah  12.08199  32.93120 32.43   Clear
-# 12 2215163 Masallatah  14.00000  32.61667 28.09   Clear
-# 13 2210221    Tarhuna  13.63320  32.43502 29.58   Clear
+# 6  2563191 Birkirkara  14.46111  35.89722 14.90  Clouds
+# 7  2208485     Zlitan  14.56874  32.46738 16.74  Clouds
+# 8  2219905   Al Khums  14.26191  32.64861 16.74  Clouds
+# 9  2208791     Yafran  12.52859  32.06329 14.14  Clouds
+# 10 2212771   Sabratah  12.48845  32.79335 14.14  Clouds
+# 11 2208425    Zuwarah  12.08199  32.93120 15.29  Clouds
+# 12 2215163 Masallatah  14.00000  32.61667 16.74  Clouds
+# 13 2210221    Tarhuna  13.63320  32.43502 14.84  Clouds
 # 14 2210247    Tripoli  13.18746  32.87519 35.00   Clear
-# 15 2216885     Zawiya  12.72778  32.75222 30.49   Clear
+# 15 2216885     Zawiya  12.72778  32.75222 14.14  Clouds
 ```
 
 The data frame well fits the input of most models.
@@ -202,19 +202,17 @@ zonedf %>>%
 # 
 # Residuals:
 #     Min      1Q  Median      3Q     Max 
-# -2.2437 -1.4527 -0.8747  0.2674  6.4743 
+# -6.3718 -2.8074 -2.0001 -0.3938 17.9058 
 # 
 # Coefficients:
-#             Estimate Std. Error t value Pr(>|t|)    
-# (Intercept)  62.1238    12.0850   5.141 0.000245 ***
-# coord_lon    -1.6889     1.0289  -1.642 0.126621    
-# coord_lat    -0.2917     0.5095  -0.573 0.577526    
-# ---
-# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#             Estimate Std. Error t value Pr(>|t|)
+# (Intercept) -16.0706    32.5924  -0.493    0.631
+# coord_lon     0.3053     2.7747   0.110    0.914
+# coord_lat     0.8863     1.3741   0.645    0.531
 # 
-# Residual standard error: 2.652 on 12 degrees of freedom
-# Multiple R-squared:  0.4331,	Adjusted R-squared:  0.3386 
-# F-statistic: 4.583 on 2 and 12 DF,  p-value: 0.0332
+# Residual standard error: 7.152 on 12 degrees of freedom
+# Multiple R-squared:  0.08471,	Adjusted R-squared:  -0.06784 
+# F-statistic: 0.5553 on 2 and 12 DF,  p-value: 0.588
 ```
 
 ## Forecast data
@@ -241,12 +239,12 @@ head(fxts)
 
 ```
 #                       temp humidity
-# 2014-10-19 12:00:00 291.70       89
-# 2014-10-19 15:00:00 291.64       87
-# 2014-10-19 18:00:00 290.54       73
-# 2014-10-19 21:00:00 289.73       76
-# 2014-10-20 00:00:00 288.96       80
-# 2014-10-20 03:00:00 287.39       78
+# 2015-01-09 12:00:00 285.25       96
+# 2015-01-09 15:00:00 285.85       93
+# 2015-01-09 18:00:00 287.46       92
+# 2015-01-09 21:00:00 286.94       91
+# 2015-01-10 00:00:00 286.58       89
+# 2015-01-10 03:00:00 286.12       87
 ```
 
 As long as the data we are interested in is converted to a time series, we can easily create graphics from it.
@@ -358,25 +356,6 @@ forecast::auto.arima(nyxts$temp)
 ```
 
 ```
-# Warning in arima(x, order = c(1, d, 0), xreg = xreg): possible convergence
-# problem: optim gave code = 1
-```
-
-```
-# Warning in forecast::auto.arima(nyxts$temp): Unable to fit final model
-# using maximum likelihood. AIC value approximated
-```
-
-```
-# Series: nyxts$temp 
-# ARIMA(2,0,3) with non-zero mean 
-# 
-# Coefficients:
-#          ar1      ar2      ma1     ma2      ma3  intercept
-#       1.9394  -0.9742  -0.9194  0.2038  -0.1985   290.2250
-# s.e.  0.0259   0.0264   0.0850  0.1038   0.0949     0.0895
-# 
-# sigma^2 estimated as 0.167:  log likelihood=-80.16
-# AIC=180.92   AICc=181.69   BIC=202.13
+# Error in loadNamespace(name): there is no package called 'forecast'
 ```
 

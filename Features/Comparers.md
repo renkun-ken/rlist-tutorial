@@ -102,8 +102,7 @@ list.search(friends, identical(., "Ken"))
 ```
 
 ```
-# $Ken
-# $Ken$Name
+# $Ken.Name
 # [1] "Ken"
 ```
 
@@ -127,8 +126,7 @@ list.search(friends, identical(., c("Ken","Penny")))
 ```
 
 ```
-# $James
-# $James$Friends
+# $James.Friends
 # [1] "Ken"   "Penny"
 ```
 
@@ -178,13 +176,10 @@ list.search(friends, identical(., 24L))
 ```
 
 ```
-# $Ken
-# $Ken$Age
+# $Ken.Age
 # [1] 24
 # 
-# 
-# $Penny
-# $Penny$Age
+# $Penny.Age
 # [1] 24
 ```
 
@@ -340,14 +335,10 @@ people2 %>>%
 
 ```
 # List of 4
-#  $ p1:List of 1
-#   ..$ name: chr [1:2] "Ken" "Ren"
-#  $ p2:List of 1
-#   ..$ name: chr [1:2] "Kent" "Potter"
-#  $ p3:List of 1
-#   ..$ name: chr [1:2] "Sam" "Lee"
-#  $ p5:List of 1
-#   ..$ name: chr [1:2] "Kwen" "Hu"
+#  $ p1.name: chr [1:2] "Ken" "Ren"
+#  $ p2.name: chr [1:2] "Kent" "Potter"
+#  $ p3.name: chr [1:2] "Sam" "Lee"
+#  $ p5.name: chr [1:2] "Kwen" "Hu"
 ```
 
 We can also search the terms in the character vectors like `"Ken"` with distance 1 and single out the values alike.
@@ -361,12 +352,9 @@ people2 %>>%
 
 ```
 # List of 3
-#  $ p1:List of 1
-#   ..$ name: chr [1:2] "Ken" "Ren"
-#  $ p2:List of 1
-#   ..$ name: chr "Kent"
-#  $ p5:List of 1
-#   ..$ name: chr "Kwen"
+#  $ p1.name: chr [1:2] "Ken" "Ren"
+#  $ p2.name: chr "Kent"
+#  $ p5.name: chr "Kwen"
 ```
 
 `stringdist` even provides a Soundex-based string distance measure. We can use use it to find texts that sounds alike. For example, we can find out all people whose first name or last name sounds like Li.
