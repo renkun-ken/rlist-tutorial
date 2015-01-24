@@ -1,0 +1,783 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Weather API | rlist Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    
+    <link rel="prev" href="../Examples/GitHub-API.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+    
+    <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+    
+
+
+        
+    <div class="book" data-level="3.2" data-basepath=".." data-revision="1422058303624">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="Getting-started/README.html">
+            
+                
+                    <a href="../Getting-started/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Getting started
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="Getting-started/Quick-overview.html">
+            
+                
+                    <a href="../Getting-started/Quick-overview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Quick overview
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="Getting-started/Working-in-pipeline.html">
+            
+                
+                    <a href="../Getting-started/Working-in-pipeline.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Working in pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="Getting-started/File-formats.html">
+            
+                
+                    <a href="../Getting-started/File-formats.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         File formats
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="Features/README.html">
+            
+                
+                    <a href="../Features/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Features
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="Features/Mapping.html">
+            
+                
+                    <a href="../Features/Mapping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Mapping
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="Features/Filtering.html">
+            
+                
+                    <a href="../Features/Filtering.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Filtering
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="Features/Updating.html">
+            
+                
+                    <a href="../Features/Updating.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Updating
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="Features/Sorting.html">
+            
+                
+                    <a href="../Features/Sorting.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Sorting
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="Features/Grouping.html">
+            
+                
+                    <a href="../Features/Grouping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Grouping
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="Features/Joining.html">
+            
+                
+                    <a href="../Features/Joining.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         Joining
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="Features/Searching.html">
+            
+                
+                    <a href="../Features/Searching.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         Searching
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="Features/Comparers.html">
+            
+                
+                    <a href="../Features/Comparers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         Comparers
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="Features/Input-output.html">
+            
+                
+                    <a href="../Features/Input-output.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Input/Output
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="Features/Misc-functions.html">
+            
+                
+                    <a href="../Features/Misc-functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         Misc functions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.11" data-path="Features/Lambda-expression.html">
+            
+                
+                    <a href="../Features/Lambda-expression.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                         Lambda expression
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.12" data-path="Features/List-environment.html">
+            
+                
+                    <a href="../Features/List-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                         List environment
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="Examples/README.html">
+            
+                
+                    <a href="../Examples/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Examples
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="Examples/GitHub-API.html">
+            
+                
+                    <a href="../Examples/GitHub-API.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         GitHub API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="3.2" data-path="Examples/Weather-API.html">
+            
+                
+                    <a href="../Examples/Weather-API.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Weather API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >rlist Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_3">
+                    
+                        <h1 id="weather-api">Weather API</h1>
+<p><a href="http://openweathermap.org/" target="_blank">OpenWeatherMap</a> provides a set of <a href="http://openweathermap.org/api" target="_blank">weather API</a> that is simple, clear and free. Using the API, we get access to not only the current weather data, forecasts, historical data, and so on. The returned data is by default presented in JSON format, which can be easily loaded and processed by rlist functions.</p>
+<h2 id="current-weather-data">Current weather data</h2>
+<p>The following code downloads the latest weather data of New York and London.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(rlist)
+<span class="hljs-keyword">library</span>(pipeR)
+weather &lt;- <span class="hljs-string">&quot;http://api.openweathermap.org/data/2.5/weather?q=%s&quot;</span> %&gt;&gt;%
+  sprintf(c(<span class="hljs-string">&quot;New York,us&quot;</span>, <span class="hljs-string">&quot;London,uk&quot;</span>)) %&gt;&gt;%
+  list.load(<span class="hljs-string">&quot;json&quot;</span>) %&gt;&gt;%
+  list.names(name)
+</code></pre>
+<p><code>list.load()</code> in the latest development version of rlist supports loading multiple files given by a character vector. Here we use <code>sprintf()</code> to construct a character vector provided the URL template of a weather data query.</p>
+<pre><code class="lang-r">str(weather)
+</code></pre>
+<pre><code># List of 2
+#  $ New York:List of 11
+#   ..$ coord  :List of 2
+#   .. ..$ lon: num -74
+#   .. ..$ lat: num 40.7
+#   ..$ sys    :List of 4
+#   .. ..$ message: num 0.0179
+#   .. ..$ country: chr &quot;US&quot;
+#   .. ..$ sunrise: int 1420805973
+#   .. ..$ sunset : int 1420840025
+#   ..$ weather:List of 1
+#   .. ..$ :List of 4
+#   .. .. ..$ id         : int 804
+#   .. .. ..$ main       : chr &quot;Clouds&quot;
+#   .. .. ..$ description: chr &quot;overcast clouds&quot;
+#   .. .. ..$ icon       : chr &quot;04d&quot;
+#   ..$ base   : chr &quot;cmc stations&quot;
+#   ..$ main   :List of 7
+#   .. ..$ temp      : num 267
+#   .. ..$ temp_min  : num 267
+#   .. ..$ temp_max  : num 267
+#   .. ..$ pressure  : num 1015
+#   .. ..$ sea_level : num 1030
+#   .. ..$ grnd_level: num 1015
+#   .. ..$ humidity  : int 71
+#   ..$ wind   :List of 2
+#   .. ..$ speed: num 3.62
+#   .. ..$ deg  : num 227
+#   ..$ clouds :List of 1
+#   .. ..$ all: int 92
+#   ..$ dt     : int 1420806501
+#   ..$ id     : int 5128581
+#   ..$ name   : chr &quot;New York&quot;
+#   ..$ cod    : int 200
+#  $ London  :List of 12
+#   ..$ coord  :List of 2
+#   .. ..$ lon: num -0.13
+#   .. ..$ lat: num 51.5
+#   ..$ sys    :List of 6
+#   .. ..$ type   : int 3
+#   .. ..$ id     : int 60992
+#   .. ..$ message: num 0.0324
+#   .. ..$ country: chr &quot;GB&quot;
+#   .. ..$ sunrise: int 1420790595
+#   .. ..$ sunset : int 1420819930
+#   ..$ weather:List of 1
+#   .. ..$ :List of 4
+#   .. .. ..$ id         : int 801
+#   .. .. ..$ main       : chr &quot;Clouds&quot;
+#   .. .. ..$ description: chr &quot;few clouds&quot;
+#   .. .. ..$ icon       : chr &quot;02d&quot;
+#   ..$ base   : chr &quot;cmc stations&quot;
+#   ..$ main   :List of 5
+#   .. ..$ temp    : num 285
+#   .. ..$ humidity: int 81
+#   .. ..$ pressure: num 1019
+#   .. ..$ temp_min: num 285
+#   .. ..$ temp_max: num 285
+#   ..$ wind   :List of 3
+#   .. ..$ speed: int 1
+#   .. ..$ gust : num 8.8
+#   .. ..$ deg  : int 270
+#   ..$ rain   :List of 1
+#   .. ..$ 3h: int 0
+#   ..$ clouds :List of 1
+#   .. ..$ all: int 24
+#   ..$ dt     : int 1420804144
+#   ..$ id     : int 2643743
+#   ..$ name   : chr &quot;London&quot;
+#   ..$ cod    : int 200
+</code></pre><p>We can see that <code>weather</code> includes the the information of the city as well as the weather.</p>
+<p>The weather API also supports box searching, that is, search data from cities within the defined rectangle specified by the geographic coordinates. <code>bbox</code> indicates the bounding box of the following parameters: lat of the top left point, lon of the top left point, lat of the bottom right point, lon of the bottom right point, map zoom.</p>
+<pre><code class="lang-r">zone &lt;- <span class="hljs-string">&quot;http://api.openweathermap.org/data/2.5/box/city?bbox=%s&amp;cluster=yes&quot;</span> %&gt;&gt;%
+  sprintf(<span class="hljs-string">&quot;12,32,15,37,10&quot;</span>) %&gt;&gt;%
+  list.load(<span class="hljs-string">&quot;json&quot;</span>)
+</code></pre>
+<p>Once we get the data, we can see the names of the cities in the zone.</p>
+<pre><code class="lang-r">zone$list %&gt;&gt;% 
+  list.mapv(name)
+</code></pre>
+<pre><code>#  [1] &quot;Gharyan&quot;    &quot;Ragusa&quot;     &quot;Rosolini&quot;   &quot;Modica&quot;     &quot;Pozzallo&quot;  
+#  [6] &quot;Birkirkara&quot; &quot;Zlitan&quot;     &quot;Al Khums&quot;   &quot;Yafran&quot;     &quot;Sabratah&quot;  
+# [11] &quot;Zuwarah&quot;    &quot;Masallatah&quot; &quot;Tarhuna&quot;    &quot;Tripoli&quot;    &quot;Zawiya&quot;
+</code></pre><p>We can also build a table that shows the weather condition of these cities.</p>
+<pre><code class="lang-r">zone$list %&gt;&gt;% 
+  list.table(weather[[<span class="hljs-number">1L</span>]]$main)
+</code></pre>
+<pre><code># 
+#  Clear Clouds 
+#      5     10
+</code></pre><p>For more details, we can group the data by weather condition and see the name list for each type of weather.</p>
+<pre><code class="lang-r">zone$list %&gt;&gt;%
+  list.group(weather[[<span class="hljs-number">1L</span>]]$main) %&gt;&gt;%
+  list.map(. %&gt;&gt;% list.mapv(name))
+</code></pre>
+<pre><code># $Clear
+# [1] &quot;Ragusa&quot;   &quot;Rosolini&quot; &quot;Modica&quot;   &quot;Pozzallo&quot; &quot;Tripoli&quot; 
+# 
+# $Clouds
+#  [1] &quot;Gharyan&quot;    &quot;Birkirkara&quot; &quot;Zlitan&quot;     &quot;Al Khums&quot;   &quot;Yafran&quot;    
+#  [6] &quot;Sabratah&quot;   &quot;Zuwarah&quot;    &quot;Masallatah&quot; &quot;Tarhuna&quot;    &quot;Zawiya&quot;
+</code></pre><p>Sometimes it is easier to work with data frame for vectorization and model research. For example, we can build a data frame from the non-tabular data by <em>stacking</em> the list elements with selected fields.</p>
+<pre><code class="lang-r">zonedf &lt;- zone$list %&gt;&gt;%
+  list.select(id, name, 
+    coord_lon = coord$lon, coord_lat = coord$lat, 
+    temp = main$temp, weather = weather[[<span class="hljs-number">1L</span>]]$main) %&gt;&gt;%
+  list.stack %&gt;&gt;%
+  print
+</code></pre>
+<pre><code>#         id       name coord_lon coord_lat  temp weather
+# 1  2217362    Gharyan  13.02028  32.17222 13.51  Clouds
+# 2  2523650     Ragusa  14.71719  36.92824 32.97   Clear
+# 3  2523581   Rosolini  14.94779  36.82424 14.76   Clear
+# 4  2524119     Modica  14.77399  36.84594 14.76   Clear
+# 5  2523693   Pozzallo  14.84989  36.73054 24.37   Clear
+# 6  2563191 Birkirkara  14.46111  35.89722 14.90  Clouds
+# 7  2208485     Zlitan  14.56874  32.46738 16.74  Clouds
+# 8  2219905   Al Khums  14.26191  32.64861 16.74  Clouds
+# 9  2208791     Yafran  12.52859  32.06329 14.14  Clouds
+# 10 2212771   Sabratah  12.48845  32.79335 14.14  Clouds
+# 11 2208425    Zuwarah  12.08199  32.93120 15.29  Clouds
+# 12 2215163 Masallatah  14.00000  32.61667 16.74  Clouds
+# 13 2210221    Tarhuna  13.63320  32.43502 14.84  Clouds
+# 14 2210247    Tripoli  13.18746  32.87519 35.00   Clear
+# 15 2216885     Zawiya  12.72778  32.75222 14.14  Clouds
+</code></pre><p>The data frame well fits the input of most models.</p>
+<pre><code class="lang-r">zonedf %&gt;&gt;%
+  lm(formula = temp ~ coord_lon + coord_lat) %&gt;&gt;%
+  summary
+</code></pre>
+<pre><code># 
+# Call:
+# lm(formula = temp ~ coord_lon + coord_lat, data = .)
+# 
+# Residuals:
+#     Min      1Q  Median      3Q     Max 
+# -6.3718 -2.8074 -2.0001 -0.3938 17.9058 
+# 
+# Coefficients:
+#             Estimate Std. Error t value Pr(&gt;|t|)
+# (Intercept) -16.0706    32.5924  -0.493    0.631
+# coord_lon     0.3053     2.7747   0.110    0.914
+# coord_lat     0.8863     1.3741   0.645    0.531
+# 
+# Residual standard error: 7.152 on 12 degrees of freedom
+# Multiple R-squared:  0.08471,    Adjusted R-squared:  -0.06784 
+# F-statistic: 0.5553 on 2 and 12 DF,  p-value: 0.588
+</code></pre><h2 id="forecast-data">Forecast data</h2>
+<p>The weather API provides give access to the forecast data. Here we get the forecast data of the London city.</p>
+<pre><code class="lang-r">forecast &lt;- <span class="hljs-string">&quot;http://api.openweathermap.org/data/2.5/forecast?q=London,uk&quot;</span> %&gt;&gt;%
+  list.load(<span class="hljs-string">&quot;json&quot;</span>)
+</code></pre>
+<p>The forecast incorporates some meta-information such as the city data and message retrieval data. We can easily transform the forecast points to an <code>xts</code> object as a time series.</p>
+<pre><code class="lang-r">fxts &lt;- forecast$list %&gt;&gt;%
+  list.select(dt = as.POSIXct(dt_txt), 
+    temp = main$temp, humidity = main$humidity) %&gt;&gt;%
+  list.stack %&gt;&gt;%
+  (xts::xts(x = .[-<span class="hljs-number">1L</span>], order.by = .$dt))
+head(fxts)
+</code></pre>
+<pre><code>#                       temp humidity
+# 2015-01-09 12:00:00 285.25       96
+# 2015-01-09 15:00:00 285.85       93
+# 2015-01-09 18:00:00 287.46       92
+# 2015-01-09 21:00:00 286.94       91
+# 2015-01-10 00:00:00 286.58       89
+# 2015-01-10 03:00:00 286.12       87
+</code></pre><p>As long as the data we are interested in is converted to a time series, we can easily create graphics from it.</p>
+<pre><code class="lang-r">par(mfrow=c(<span class="hljs-number">2</span>,<span class="hljs-number">1</span>))
+plot(fxts$temp, main = <span class="hljs-string">&quot;Forecast temperature of London&quot;</span>)
+plot(fxts$humidity, main = <span class="hljs-string">&quot;Forecast humidity of London&quot;</span>)
+</code></pre>
+<p><img src="figure/weather-forecast-1.png" title="plot of chunk weather-forecast" alt="plot of chunk weather-forecast" style="display: block; margin: auto;"></p>
+<h2 id="historical-data">Historical data</h2>
+<p>The weather API allows us to access the historical weather database. The database adopts UNIX Date/Time standard for which we define <code>unixdt()</code> to better transform human-readable date/time to numbers included in the data query.</p>
+<pre><code class="lang-r">unixdt &lt;- <span class="hljs-keyword">function</span>(date) {
+  as.integer(as.POSIXct(date, tz = <span class="hljs-string">&quot;UTC&quot;</span>))
+}
+</code></pre>
+<p>The following code queries the hourly historical data of New York from <code>2014-10-01 00:00:00</code> and get the maximal number of records a free account is allowed.</p>
+<pre><code class="lang-r">history &lt;- <span class="hljs-string">&quot;http://api.openweathermap.org/data/2.5/history/city?&amp;q=%s&amp;start=%d&amp;cnt=200&quot;</span> %&gt;&gt;%
+  sprintf(<span class="hljs-string">&quot;New York,us&quot;</span>, unixdt(<span class="hljs-string">&quot;2014-10-01 00:00:00&quot;</span>)) %&gt;&gt;%
+  list.load(<span class="hljs-string">&quot;json&quot;</span>)
+</code></pre>
+<p>Once the historical data is ready, we can get some simple impression on it. For example, we can see the weather distribution.</p>
+<pre><code class="lang-r">history$list %&gt;&gt;%
+  list.table(weather = weather[[<span class="hljs-number">1L</span>]]$main) %&gt;&gt;%
+  list.sort(-.)
+</code></pre>
+<pre><code># weather
+#  Clouds    Rain    Mist Drizzle    Haze 
+#      80      58      10       3       2
+</code></pre><p>We can also inspect the location statistics of humidity data for each weather condition.</p>
+<pre><code class="lang-r">history$list %&gt;&gt;%
+  list.group(weather[[<span class="hljs-number">1L</span>]]$main) %&gt;&gt;%
+  list.map(. %&gt;&gt;% 
+      list.mapv(main$humidity) %&gt;&gt;% 
+      summary)
+</code></pre>
+<pre><code># $Clouds
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#    42.0    59.0    70.0    67.6    77.0    88.0 
+# 
+# $Drizzle
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   82.00   82.00   82.00   83.67   84.50   87.00 
+# 
+# $Haze
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#      77      77      77      77      77      77 
+# 
+# $Mist
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   72.00   82.00   84.50   83.30   87.75   88.00 
+# 
+# $Rain
+#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+#   68.00   77.00   82.00   82.31   88.00   94.00
+</code></pre><p>Or we can create an <code>xts</code> object from it.</p>
+<pre><code class="lang-r">nyxts &lt;- history$list %&gt;&gt;%
+  list.select(dt = as.POSIXct(dt, origin = <span class="hljs-string">&quot;1970-01-01&quot;</span>), 
+    temp = main$temp, humidity = main$humidity) %&gt;&gt;%
+  list.stack %&gt;&gt;%
+  (xts::xts(x = .[-<span class="hljs-number">1L</span>], order.by = .$dt))
+head(nyxts)
+</code></pre>
+<pre><code>#                       temp humidity
+# 2014-10-01 08:23:50 291.47       82
+# 2014-10-01 09:22:49 290.90       72
+# 2014-10-01 09:41:57 290.34       72
+# 2014-10-01 10:22:23 290.35       77
+# 2014-10-01 11:23:14 290.10       72
+# 2014-10-01 11:35:04 290.10       72
+</code></pre><p>The object facilitates time series operations but also can be used in time series model fitting.</p>
+<pre><code class="lang-r">forecast::auto.arima(nyxts$temp)
+</code></pre>
+<pre><code># Error in loadNamespace(name): there is no package called &apos;forecast&apos;
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../Examples/GitHub-API.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: GitHub API"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"ga":{"token":"UA-47159422-1","configuration":"auto"},"disqus":{"shortName":"renkun-ken"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47159422-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

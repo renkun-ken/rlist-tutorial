@@ -1,0 +1,42 @@
+[
+	{
+		"Name" : "Ken",
+		"Age" : 24,
+		"Interests" : [
+			"reading",
+			"music",
+			"movies"
+		],
+		"Expertise" : {
+            "R": 2,
+            "CSharp": 4,
+			"Python" : 3
+		}
+	},
+	{
+		"Name" : "James",
+		"Age" : 25,
+		"Interests" : [
+			"sports",
+			"music"
+		],
+		"Expertise" : {
+			"R" : 3,
+			"Java" : 2,
+			"Cpp" : 5
+		}
+	},
+	{
+		"Name" : "Penny",
+		"Age" : 24,
+		"Interests" : [
+			"movies",
+			"reading"
+		],
+		"Expertise" : {
+			"R" : 1,
+			"Cpp" : 4,
+			"Python" : 2
+		}
+	}
+]

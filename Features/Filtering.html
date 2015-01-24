@@ -1,0 +1,807 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Filtering | rlist Tutorial</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.5.0">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+        
+    
+    
+    <link rel="next" href="../Features/Updating.html" />
+    
+    
+    <link rel="prev" href="../Features/Mapping.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+    
+    <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-katex/katex.min.css">
+    
+
+
+        
+    <div class="book" data-level="2.2" data-basepath=".." data-revision="1422058303624">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	
+
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="Getting-started/README.html">
+            
+                
+                    <a href="../Getting-started/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Getting started
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="1.1" data-path="Getting-started/Quick-overview.html">
+            
+                
+                    <a href="../Getting-started/Quick-overview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Quick overview
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.2" data-path="Getting-started/Working-in-pipeline.html">
+            
+                
+                    <a href="../Getting-started/Working-in-pipeline.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.2.</b>
+                        
+                         Working in pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1.3" data-path="Getting-started/File-formats.html">
+            
+                
+                    <a href="../Getting-started/File-formats.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.3.</b>
+                        
+                         File formats
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="Features/README.html">
+            
+                
+                    <a href="../Features/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Features
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="Features/Mapping.html">
+            
+                
+                    <a href="../Features/Mapping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Mapping
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter active" data-level="2.2" data-path="Features/Filtering.html">
+            
+                
+                    <a href="../Features/Filtering.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Filtering
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="Features/Updating.html">
+            
+                
+                    <a href="../Features/Updating.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Updating
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="Features/Sorting.html">
+            
+                
+                    <a href="../Features/Sorting.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Sorting
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="Features/Grouping.html">
+            
+                
+                    <a href="../Features/Grouping.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Grouping
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="Features/Joining.html">
+            
+                
+                    <a href="../Features/Joining.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         Joining
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="Features/Searching.html">
+            
+                
+                    <a href="../Features/Searching.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         Searching
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="Features/Comparers.html">
+            
+                
+                    <a href="../Features/Comparers.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         Comparers
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="Features/Input-output.html">
+            
+                
+                    <a href="../Features/Input-output.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Input/Output
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="Features/Misc-functions.html">
+            
+                
+                    <a href="../Features/Misc-functions.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         Misc functions
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.11" data-path="Features/Lambda-expression.html">
+            
+                
+                    <a href="../Features/Lambda-expression.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.11.</b>
+                        
+                         Lambda expression
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.12" data-path="Features/List-environment.html">
+            
+                
+                    <a href="../Features/List-environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.12.</b>
+                        
+                         List environment
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="Examples/README.html">
+            
+                
+                    <a href="../Examples/README.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Examples
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="Examples/GitHub-API.html">
+            
+                
+                    <a href="../Examples/GitHub-API.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         GitHub API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="Examples/Weather-API.html">
+            
+                
+                    <a href="../Examples/Weather-API.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Weather API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >rlist Tutorial</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_10">
+                    
+                        <h1 id="filtering">Filtering</h1>
+<p>List filtering is to select list elements by given criteria. In rlist package, more than ten functions are related with list filtering. Basically, they all perform mapping first but then aggregate the results in different ways.</p>
+<p>First, we load the sample data.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(rlist)
+people &lt;- list.load(<span class="hljs-string">&quot;http://renkun.me/rlist-tutorial/data/sample.json&quot;</span>)
+</code></pre>
+<h2 id="listfilter">list.filter</h2>
+<p><code>list.filter()</code> filters a list by an expression that returns <code>TRUE</code> or <code>FALSE</code>. The results only contain the list elements for which the value of that expression turns out to be <code>TRUE</code>.</p>
+<p>Different from list mapping which evaluates an expression given each list element, list filtering evaluates an expression to decide whether to include <em>the entire element</em> in the results.</p>
+<pre><code class="lang-r">str(list.filter(people, Age &gt;= <span class="hljs-number">25</span>))
+</code></pre>
+<pre><code># List of 1
+#  $ :List of 4
+#   ..$ Name     : chr &quot;James&quot;
+#   ..$ Age      : int 25
+#   ..$ Interests: chr [1:2] &quot;sports&quot; &quot;music&quot;
+#   ..$ Expertise:List of 3
+#   .. ..$ R   : int 3
+#   .. ..$ Java: int 2
+#   .. ..$ Cpp : int 5
+</code></pre><p>Note that <code>list.filter()</code> filters the data with given conditions and the list elements that satisfy the conditions will be returned. We call <code>str()</code> on the results to shorten the output.</p>
+<p>Using pipeline, we can first filter the data and then map the resulted elements by expression. For example, we can get the names of those whose age is no less than 25.</p>
+<pre><code class="lang-r"><span class="hljs-keyword">library</span>(pipeR)
+people %&gt;&gt;%
+  list.filter(Age &gt;= <span class="hljs-number">25</span>) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;James&quot;
+</code></pre><p>If one has to write the code in traditional approach, it can be </p>
+<pre><code class="lang-r">list.mapv(list.filter(people, Age &gt;= <span class="hljs-number">25</span>), Name)
+</code></pre>
+<p>or </p>
+<pre><code class="lang-r">people_filtered &lt;- list.filter(people, Age &gt;= <span class="hljs-number">25</span>)
+list.mapv(people_filtered, Name)
+</code></pre>
+<p>It is obvious that both versions are quite redundant. Therefore, we will heavily use pipeline in the demonstration the features from now on to make the data processing look more elegant, and reduce the amount of information in the output.</p>
+<p>Similarly, we can also get the names of those who are interested in music.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.filter(<span class="hljs-string">&quot;music&quot;</span> %<span class="hljs-keyword">in</span>% Interests) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;Ken&quot;   &quot;James&quot;
+</code></pre><p>We can get the names of those who have been using programming languages for at least three years on average.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.filter(mean(as.numeric(Expertise)) &gt;= <span class="hljs-number">3</span>) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;Ken&quot;   &quot;James&quot;
+</code></pre><p>Meta-symbols like <code>.</code>, <code>.i</code>, and <code>.name</code> can also be used. The following code will pick up the list element whose index is even.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.filter(.i %% <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;James&quot;
+</code></pre><h2 id="listfind">list.find</h2>
+<p>In some cases, we don&apos;t need to find all the instances given the criteria. Rather, we only need to find a few, sometimes only one. <code>list.find()</code> avoids searching across all list element but stops at a specific number of items found.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.find(Age &gt;= <span class="hljs-number">25</span>, <span class="hljs-number">1</span>) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;James&quot;
+</code></pre><h2 id="listfindi">list.findi</h2>
+<p>Similar with <code>list.find()</code>, <code>list.findi()</code> only returns the index of the elements found.</p>
+<pre><code class="lang-r">list.findi(people, Age &gt;= <span class="hljs-number">23</span>, <span class="hljs-number">2</span>)
+</code></pre>
+<pre><code># [1] 1 2
+</code></pre><p>You may verify that if the number of instances to find is greater than the actual number of instances in the data, all qualified instances will be returned.</p>
+<h2 id="listfirst-listlast">list.first, list.last</h2>
+<p><code>list.first()</code> and <code>list.last()</code> are used to find the first and last element that meets certain condition if specified, respectively.</p>
+<pre><code class="lang-r">str(list.first(people, Age &gt;= <span class="hljs-number">23</span>))
+</code></pre>
+<pre><code># List of 4
+#  $ Name     : chr &quot;Ken&quot;
+#  $ Age      : int 24
+#  $ Interests: chr [1:3] &quot;reading&quot; &quot;music&quot; &quot;movies&quot;
+#  $ Expertise:List of 3
+#   ..$ R     : int 2
+#   ..$ CSharp: int 4
+#   ..$ Python: int 3
+</code></pre><pre><code class="lang-r">str(list.last(people, Age &gt;= <span class="hljs-number">23</span>))
+</code></pre>
+<pre><code># List of 4
+#  $ Name     : chr &quot;Penny&quot;
+#  $ Age      : int 24
+#  $ Interests: chr [1:2] &quot;movies&quot; &quot;reading&quot;
+#  $ Expertise:List of 3
+#   ..$ R     : int 1
+#   ..$ Cpp   : int 4
+#   ..$ Python: int 2
+</code></pre><p>These two functions also works when the condition is missing. In this case, they simply take out the first/last element from the list or vector.</p>
+<pre><code class="lang-r">list.first(<span class="hljs-number">1</span>:<span class="hljs-number">10</span>)
+</code></pre>
+<pre><code># [1] 1
+</code></pre><pre><code class="lang-r">list.last(<span class="hljs-number">1</span>:<span class="hljs-number">10</span>)
+</code></pre>
+<pre><code># [1] 10
+</code></pre><h2 id="listtake">list.take</h2>
+<p><code>list.take()</code> takes at most a given number of elements from a list. If the number is even larger than the length of the list, the function will by default return all elements in the list.</p>
+<pre><code class="lang-r">list.take(<span class="hljs-number">1</span>:<span class="hljs-number">10</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code># [1] 1 2 3
+</code></pre><pre><code class="lang-r">list.take(<span class="hljs-number">1</span>:<span class="hljs-number">5</span>, <span class="hljs-number">8</span>)
+</code></pre>
+<pre><code># [1] 1 2 3 4 5
+</code></pre><h2 id="listskip">list.skip</h2>
+<p>As opposed to <code>list.take()</code>, <code>list.skip()</code> skips at most a given number of elements in the list and take all the rest as the results. If the number of elements to skip is equal or greater than the length of that list, an empty one will be returned.</p>
+<pre><code class="lang-r">list.skip(<span class="hljs-number">1</span>:<span class="hljs-number">10</span>, <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code># [1]  4  5  6  7  8  9 10
+</code></pre><pre><code class="lang-r">list.skip(<span class="hljs-number">1</span>:<span class="hljs-number">5</span>, <span class="hljs-number">8</span>)
+</code></pre>
+<pre><code># integer(0)
+</code></pre><h2 id="listtakewhile">list.takeWhile</h2>
+<p>Similar to <code>list.take()</code>, <code>list.takeWhile()</code> is also designed to take out some elements from a list but subject to a condition. Basically, it keeps taking elements while a condition holds true.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.takeWhile(Expertise$R &gt;= <span class="hljs-number">2</span>) %&gt;&gt;%
+  list.map(list(Name = Name, R = Expertise$R)) %&gt;&gt;%
+  str
+</code></pre>
+<pre><code># List of 2
+#  $ :List of 2
+#   ..$ Name: chr &quot;Ken&quot;
+#   ..$ R   : int 2
+#  $ :List of 2
+#   ..$ Name: chr &quot;James&quot;
+#   ..$ R   : int 3
+</code></pre><h2 id="listskipwhile">list.skipWhile</h2>
+<p><code>list.skipWhile()</code> keeps skipping elements while a condition holds true.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.skipWhile(Expertise$R &lt;= <span class="hljs-number">2</span>) %&gt;&gt;%
+  list.map(list(Name = Name, R = Expertise$R)) %&gt;&gt;%
+  str
+</code></pre>
+<pre><code># List of 2
+#  $ :List of 2
+#   ..$ Name: chr &quot;James&quot;
+#   ..$ R   : int 3
+#  $ :List of 2
+#   ..$ Name: chr &quot;Penny&quot;
+#   ..$ R   : int 1
+</code></pre><h2 id="listis">list.is</h2>
+<p><code>list.is()</code> returns a logical vector that indicates whether a condition holds for each member of a list.</p>
+<pre><code class="lang-r">list.is(people, <span class="hljs-string">&quot;music&quot;</span> %<span class="hljs-keyword">in</span>% Interests)
+</code></pre>
+<pre><code># [1]  TRUE  TRUE FALSE
+</code></pre><pre><code class="lang-r">list.is(people, <span class="hljs-string">&quot;Java&quot;</span> %<span class="hljs-keyword">in</span>% names(Expertise))
+</code></pre>
+<pre><code># [1] FALSE  TRUE FALSE
+</code></pre><h2 id="listwhich">list.which</h2>
+<p><code>list.which()</code> returns a integer vector of the indices of the elements of a list that meet a given condition.</p>
+<pre><code class="lang-r">list.which(people, <span class="hljs-string">&quot;music&quot;</span> %<span class="hljs-keyword">in</span>% Interests)
+</code></pre>
+<pre><code># [1] 1 2
+</code></pre><pre><code class="lang-r">list.which(people, <span class="hljs-string">&quot;Java&quot;</span> %<span class="hljs-keyword">in</span>% names(Expertise))
+</code></pre>
+<pre><code># [1] 2
+</code></pre><h2 id="listall">list.all</h2>
+<p><code>list.all()</code> returns <code>TRUE</code> if all the elements of a list satisfy a given condition, or <code>FALSE</code> otherwise.</p>
+<pre><code class="lang-r">list.all(people, mean(as.numeric(Expertise)) &gt;= <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code># [1] FALSE
+</code></pre><pre><code class="lang-r">list.all(people, <span class="hljs-string">&quot;R&quot;</span> %<span class="hljs-keyword">in</span>% names(Expertise))
+</code></pre>
+<pre><code># [1] TRUE
+</code></pre><h2 id="listany">list.any</h2>
+<p><code>list.any()</code> returns <code>TRUE</code> if at least one of the elements of a list satisfies a given condition, or <code>FALSE</code> otherwise.</p>
+<pre><code class="lang-r">list.any(people, mean(as.numeric(Expertise)) &gt;= <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code># [1] TRUE
+</code></pre><pre><code class="lang-r">list.any(people, <span class="hljs-string">&quot;Python&quot;</span> %<span class="hljs-keyword">in</span>% names(Expertise))
+</code></pre>
+<pre><code># [1] TRUE
+</code></pre><h2 id="listcount">list.count</h2>
+<p><code>list.count()</code> return a scalar integer that indicates the number of elements of a list that satisfy a given condition.</p>
+<pre><code class="lang-r">list.count(people, mean(as.numeric(Expertise)) &gt;= <span class="hljs-number">3</span>)
+</code></pre>
+<pre><code># [1] 2
+</code></pre><pre><code class="lang-r">list.count(people, <span class="hljs-string">&quot;R&quot;</span> %<span class="hljs-keyword">in</span>% names(Expertise))
+</code></pre>
+<pre><code># [1] 3
+</code></pre><h2 id="listmatch">list.match</h2>
+<p><code>list.match()</code> filters a list by matching the names of the list elements by a regular expression pattern.</p>
+<pre><code class="lang-r">data &lt;- list(p1 = <span class="hljs-number">1</span>, p2 = <span class="hljs-number">2</span>, a1 = <span class="hljs-number">3</span>, a2 = <span class="hljs-number">4</span>)
+list.match(data, <span class="hljs-string">&quot;p[12]&quot;</span>)
+</code></pre>
+<pre><code># $p1
+# [1] 1
+# 
+# $p2
+# [1] 2
+</code></pre><h2 id="listremove">list.remove</h2>
+<p><code>list.remove()</code> removes list elements by index or name.</p>
+<pre><code class="lang-r">list.remove(data, c(<span class="hljs-string">&quot;p1&quot;</span>,<span class="hljs-string">&quot;p2&quot;</span>))
+</code></pre>
+<pre><code># $a1
+# [1] 3
+# 
+# $a2
+# [1] 4
+</code></pre><pre><code class="lang-r">list.remove(data, c(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>))
+</code></pre>
+<pre><code># $p1
+# [1] 1
+# 
+# $a2
+# [1] 4
+</code></pre><h2 id="listexclude">list.exclude</h2>
+<p><code>list.exclude()</code> removes list elements that satisfy given condition.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  list.exclude(<span class="hljs-string">&quot;sports&quot;</span> %<span class="hljs-keyword">in</span>% Interests) %&gt;&gt;%
+  list.mapv(Name)
+</code></pre>
+<pre><code># [1] &quot;Ken&quot;   &quot;Penny&quot;
+</code></pre><h2 id="listclean">list.clean</h2>
+<p><code>list.clean()</code> is used to clean a list by a function either recursively or not. The function can be built-in function like <code>is.null()</code> to remove all <code>NULL</code> values from the list, or can be user-defined function like <code>function(x) length(x) == 0</code> to remove all empty objects like <code>NULL</code>, <code>character(0L)</code>, etc.</p>
+<pre><code class="lang-r">x &lt;- list(a=<span class="hljs-number">1</span>, b=<span class="hljs-literal">NULL</span>, c=list(x=<span class="hljs-number">1</span>,y=<span class="hljs-literal">NULL</span>,z=logical(<span class="hljs-number">0L</span>),w=c(<span class="hljs-literal">NA</span>,<span class="hljs-number">1</span>)))
+str(x)
+</code></pre>
+<pre><code># List of 3
+#  $ a: num 1
+#  $ b: NULL
+#  $ c:List of 4
+#   ..$ x: num 1
+#   ..$ y: NULL
+#   ..$ z: logi(0) 
+#   ..$ w: num [1:2] NA 1
+</code></pre><p>To clear all <code>NULL</code> values in the list recursively, we can call</p>
+<pre><code class="lang-r">str(list.clean(x, recursive = <span class="hljs-literal">TRUE</span>))
+</code></pre>
+<pre><code># List of 2
+#  $ a: num 1
+#  $ c:List of 3
+#   ..$ x: num 1
+#   ..$ z: logi(0) 
+#   ..$ w: num [1:2] NA 1
+</code></pre><p>To remove all empty values including <code>NULL</code> and zero-length vectors, we can call</p>
+<pre><code class="lang-r">str(list.clean(x, <span class="hljs-keyword">function</span>(x) length(x) == <span class="hljs-number">0L</span>, recursive = <span class="hljs-literal">TRUE</span>))
+</code></pre>
+<pre><code># List of 2
+#  $ a: num 1
+#  $ c:List of 2
+#   ..$ x: num 1
+#   ..$ w: num [1:2] NA 1
+</code></pre><p>The function can also be related to missing values. For example, exclude all empty values and vectors with at least <code>NA</code>s.</p>
+<pre><code class="lang-r">str(list.clean(x, <span class="hljs-keyword">function</span>(x) length(x) == <span class="hljs-number">0L</span> || anyNA(x), recursive = <span class="hljs-literal">TRUE</span>))
+</code></pre>
+<pre><code># List of 2
+#  $ a: num 1
+#  $ c:List of 1
+#   ..$ x: num 1
+</code></pre><h2 id="subset">subset</h2>
+<p><code>subset()</code> is implemented for list object in a way that combines <code>list.filter()</code> and <code>list.map()</code>. This function basically filters a list while at the same time maps the qualified list elements by an expression.</p>
+<pre><code class="lang-r">people %&gt;&gt;%
+  subset(Age &gt;= <span class="hljs-number">24</span>, Name)
+</code></pre>
+<pre><code># [[1]]
+# [1] &quot;Ken&quot;
+# 
+# [[2]]
+# [1] &quot;James&quot;
+# 
+# [[3]]
+# [1] &quot;Penny&quot;
+</code></pre><pre><code class="lang-r">people %&gt;&gt;%
+  subset(<span class="hljs-string">&quot;reading&quot;</span> %<span class="hljs-keyword">in</span>% Interests, sum(as.numeric(Expertise)))
+</code></pre>
+<pre><code># [[1]]
+# [1] 9
+# 
+# [[2]]
+# [1] 7
+</code></pre>
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../Features/Mapping.html" class="navigation navigation-prev " aria-label="Previous page: Mapping"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../Features/Updating.html" class="navigation navigation-next " aria-label="Next page: Updating"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"ga":{"token":"UA-47159422-1","configuration":"auto"},"disqus":{"shortName":"renkun-ken"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-47159422-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>

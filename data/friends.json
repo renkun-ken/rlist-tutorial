@@ -1,0 +1,32 @@
+{
+	"Ken": {
+		"Name" : "Ken",
+		"Age" : 24,
+		"Friends" : [
+			"James"
+		]
+	},
+	"James": {
+		"Name" : "James",
+		"Age" : 25,
+		"Friends" : [
+  		"Ken",
+      "Penny"
+		]
+	},
+	"Penny": {
+		"Name" : "Penny",
+		"Age" : 24,
+		"Friends" : [
+  		"James",
+      "David"
+		]
+	},
+  "David": {
+		"Name" : "David",
+		"Age" : 25,
+		"Friends" : [
+  		"Penny"
+		]
+	}
+}
