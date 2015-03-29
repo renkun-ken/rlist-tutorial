@@ -36,7 +36,7 @@ list.count(repos)
 ```
 
 ```
-# [1] 133
+# [1] 150
 ```
 
 Then the structure of repos in terms of forks and non-forks:
@@ -50,7 +50,7 @@ repos %>>%
 ```
 # fork
 # FALSE  TRUE 
-#   103    30
+#   114    36
 ```
 
 GitHub shows the language structure of each individual repo. Here we summarize the language structure of Hadley's all projects.
@@ -65,10 +65,10 @@ repos %>>%
 
 ```
 # language
-#          R JavaScript          C        C++       Ruby        TeX 
-#         91          8          5          5          3          3 
-#     Python      Rebol        CSS      Shell     Turing 
-#          2          2          1          1          1
+#          R        C++ JavaScript          C        TeX       Ruby 
+#         95          9          8          6          5          3 
+#      Shell       HTML     Python      Rebol        CSS     Turing 
+#          3          2          2          2          1          1
 ```
 
 or show the table of language by fork:
@@ -82,18 +82,19 @@ repos %>>%
 ```
 #             fork
 # language     FALSE TRUE
-#   C              2    3
-#   C++            4    1
+#   C              3    3
+#   C++            7    2
 #   CSS            0    1
+#   HTML           1    1
 #   JavaScript     5    3
 #   Python         0    2
-#   R             78   13
+#   R             79   16
 #   Rebol          2    0
 #   Ruby           2    1
-#   Shell          0    1
-#   TeX            3    0
+#   Shell          1    2
+#   TeX            5    0
 #   Turing         0    1
-#   <NA>           7    4
+#   <NA>           9    4
 ```
 
 Hadley has created several top-ranked popular packages. Let's build a bar chart to show the top 10 R repos with most stargazers.
@@ -111,10 +112,10 @@ repos %>>%
 ```
 
 ```
-#   ggplot2  devtools     dplyr      plyr      httr  testthat     rvest 
-#      1109       926       598       350       227       186       185 
-#     tidyr lubridate   reshape 
-#       139       138        94
+#   ggplot2  devtools      plyr     rvest      httr  testthat     tidyr 
+#      1223       976       368       308       285       204       167 
+# lubridate   reshape     purrr 
+#       148       108        94
 ```
 
 <img src="figure/top-10-repos-with-most-stargazers-1.png" title="plot of chunk top-10-repos-with-most-stargazers" alt="plot of chunk top-10-repos-with-most-stargazers" style="display: block; margin: auto;" />
@@ -138,10 +139,10 @@ repos %>>%
 ```
 
 ```
-#    ggplot2      dplyr   devtools staticdocs  lubridate       plyr 
-#         83         82         60         32         31         29 
-#     gtable     scales   roxygen3      tidyr 
-#         23         23         22         17
+#    ggplot2   devtools staticdocs  lubridate       plyr      tidyr 
+#        113         62         41         37         34         32 
+#     scales     gtable   testthat   roxygen3 
+#         26         24         23         22
 ```
 
 <img src="figure/top-10-repos-with-most-open-issues-1.png" title="plot of chunk top-10-repos-with-most-open-issues" alt="plot of chunk top-10-repos-with-most-open-issues" style="display: block; margin: auto;" />
@@ -160,14 +161,15 @@ repos %>>%
 
 ```
 #  [1] "ggplot2"         "bigvis"          "r2d3"           
-#  [4] "gg2v"            "boxplots-paper"  "productplots"   
-#  [7] "densityvis"      "lvplot"          "bigvis-infovis" 
-# [10] "clusterfly"      "ggplot2-bayarea" "layers"         
-# [13] "r-travis"        "prodplotpaper"   "rminds"         
-# [16] "spatialVis"      "fortify"         "ggplot"         
-# [19] "ggplot2-docs"    "rblocks"         "vis-migration"  
-# [22] "classifly"       "ggmap"           "imvisoned"      
-# [25] "vega"
+#  [4] "ggplot2-book"    "gg2v"            "productplots"   
+#  [7] "boxplots-paper"  "clusterfly"      "lvplot"         
+# [10] "bigvis-infovis"  "densityvis"      "ggplot2-bayarea"
+# [13] "layers"          "r-travis"        "toc-vis"        
+# [16] "lvplot-paper"    "prodplotpaper"   "rblocks"        
+# [19] "rminds"          "spatialVis"      "classifly"      
+# [22] "fortify"         "ggplot"          "ggplot2-docs"   
+# [25] "vis-migration"   "ggmap"           "imvisoned"      
+# [28] "syuzhet"         "vega"
 ```
 
 The quality of data filtering depends on your conditions. Not every repo shown above is related to data visualization. For example, *r-travis* has nothing to do with visualization although it contains *vis*. To do better data analysis, we would have to think hard about the data. rlist functions attempt to release the big burden from our shoulders so that we won't be easily stuck by such data processing problems.
@@ -184,7 +186,7 @@ repos %>>%
 
 ```
 # stargazers_count   watchers_count      forks_count 
-#             6054             6054             2635
+#             7402             7402             3375
 ```
 
 We can also use fuzzy matching devices when we are not exactly sure about the term we need to find. For example, if you hear from a friend that Hadley's *dplayer* package is awesome but you cannot find the package by its name. To find out the exact name of the that package we can use soundex measurement in stringdist package.

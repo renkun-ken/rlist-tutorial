@@ -27,37 +27,40 @@ str(weather)
 
 ```
 # List of 2
-#  $ New York:List of 11
+#  $ New York:List of 12
 #   ..$ coord  :List of 2
-#   .. ..$ lon: num -74
-#   .. ..$ lat: num 40.7
-#   ..$ sys    :List of 4
-#   .. ..$ message: num 0.0179
+#   .. ..$ lon: num -75.5
+#   .. ..$ lat: int 43
+#   ..$ sys    :List of 6
+#   .. ..$ type   : int 3
+#   .. ..$ id     : int 54023
+#   .. ..$ message: num 0.361
 #   .. ..$ country: chr "US"
-#   .. ..$ sunrise: int 1420805973
-#   .. ..$ sunset : int 1420840025
+#   .. ..$ sunrise: int 1427626102
+#   .. ..$ sunset : int 1427671495
 #   ..$ weather:List of 1
 #   .. ..$ :List of 4
-#   .. .. ..$ id         : int 804
-#   .. .. ..$ main       : chr "Clouds"
-#   .. .. ..$ description: chr "overcast clouds"
-#   .. .. ..$ icon       : chr "04d"
-#   ..$ base   : chr "cmc stations"
-#   ..$ main   :List of 7
-#   .. ..$ temp      : num 267
-#   .. ..$ temp_min  : num 267
-#   .. ..$ temp_max  : num 267
-#   .. ..$ pressure  : num 1015
-#   .. ..$ sea_level : num 1030
-#   .. ..$ grnd_level: num 1015
-#   .. ..$ humidity  : int 71
-#   ..$ wind   :List of 2
-#   .. ..$ speed: num 3.62
-#   .. ..$ deg  : num 227
+#   .. .. ..$ id         : int 800
+#   .. .. ..$ main       : chr "Clear"
+#   .. .. ..$ description: chr "sky is clear"
+#   .. .. ..$ icon       : chr "02n"
+#   ..$ base   : chr "stations"
+#   ..$ main   :List of 5
+#   .. ..$ temp    : num 266
+#   .. ..$ pressure: int 1022
+#   .. ..$ temp_min: num 264
+#   .. ..$ temp_max: num 266
+#   .. ..$ humidity: int 46
+#   ..$ wind   :List of 3
+#   .. ..$ speed: num 3.08
+#   .. ..$ gust : num 4.11
+#   .. ..$ deg  : int 293
+#   ..$ snow   :List of 1
+#   .. ..$ 3h: int 0
 #   ..$ clouds :List of 1
-#   .. ..$ all: int 92
-#   ..$ dt     : int 1420806501
-#   ..$ id     : int 5128581
+#   .. ..$ all: int 8
+#   ..$ dt     : int 1427590591
+#   ..$ id     : int 5128638
 #   ..$ name   : chr "New York"
 #   ..$ cod    : int 200
 #  $ London  :List of 12
@@ -66,33 +69,33 @@ str(weather)
 #   .. ..$ lat: num 51.5
 #   ..$ sys    :List of 6
 #   .. ..$ type   : int 3
-#   .. ..$ id     : int 60992
-#   .. ..$ message: num 0.0324
+#   .. ..$ id     : int 40047
+#   .. ..$ message: num 0.556
 #   .. ..$ country: chr "GB"
-#   .. ..$ sunrise: int 1420790595
-#   .. ..$ sunset : int 1420819930
+#   .. ..$ sunrise: int 1427607706
+#   .. ..$ sunset : int 1427653719
 #   ..$ weather:List of 1
 #   .. ..$ :List of 4
-#   .. .. ..$ id         : int 801
+#   .. .. ..$ id         : int 802
 #   .. .. ..$ main       : chr "Clouds"
-#   .. .. ..$ description: chr "few clouds"
-#   .. .. ..$ icon       : chr "02d"
-#   ..$ base   : chr "cmc stations"
+#   .. .. ..$ description: chr "scattered clouds"
+#   .. .. ..$ icon       : chr "03n"
+#   ..$ base   : chr "stations"
 #   ..$ main   :List of 5
-#   .. ..$ temp    : num 285
-#   .. ..$ humidity: int 81
-#   .. ..$ pressure: num 1019
-#   .. ..$ temp_min: num 285
-#   .. ..$ temp_max: num 285
+#   .. ..$ temp    : num 283
+#   .. ..$ humidity: int 68
+#   .. ..$ pressure: num 1006
+#   .. ..$ temp_min: num 282
+#   .. ..$ temp_max: num 284
 #   ..$ wind   :List of 3
-#   .. ..$ speed: int 1
-#   .. ..$ gust : num 8.8
-#   .. ..$ deg  : int 270
+#   .. ..$ speed: num 3.7
+#   .. ..$ gust : num 6.5
+#   .. ..$ deg  : int 181
 #   ..$ rain   :List of 1
 #   .. ..$ 3h: int 0
 #   ..$ clouds :List of 1
-#   .. ..$ all: int 24
-#   ..$ dt     : int 1420804144
+#   .. ..$ all: int 48
+#   ..$ dt     : int 1427590573
 #   ..$ id     : int 2643743
 #   ..$ name   : chr "London"
 #   ..$ cod    : int 200
@@ -109,6 +112,10 @@ zone <- "http://api.openweathermap.org/data/2.5/box/city?bbox=%s&cluster=yes" %>
   list.load("json")
 ```
 
+```
+# Error in open.connection(con, "rb"): HTTP error 510.
+```
+
 Once we get the data, we can see the names of the cities in the zone.
 
 
@@ -118,9 +125,7 @@ zone$list %>>%
 ```
 
 ```
-#  [1] "Gharyan"    "Ragusa"     "Rosolini"   "Modica"     "Pozzallo"  
-#  [6] "Birkirkara" "Zlitan"     "Al Khums"   "Yafran"     "Sabratah"  
-# [11] "Zuwarah"    "Masallatah" "Tarhuna"    "Tripoli"    "Zawiya"
+# Error in zone$list %>>% list.mapv(name): object 'zone' not found
 ```
 
 We can also build a table that shows the weather condition of these cities.
@@ -132,9 +137,7 @@ zone$list %>>%
 ```
 
 ```
-# 
-#  Clear Clouds 
-#      5     10
+# Error in zone$list %>>% list.table(weather[[1L]]$main): object 'zone' not found
 ```
 
 For more details, we can group the data by weather condition and see the name list for each type of weather.
@@ -147,12 +150,7 @@ zone$list %>>%
 ```
 
 ```
-# $Clear
-# [1] "Ragusa"   "Rosolini" "Modica"   "Pozzallo" "Tripoli" 
-# 
-# $Clouds
-#  [1] "Gharyan"    "Birkirkara" "Zlitan"     "Al Khums"   "Yafran"    
-#  [6] "Sabratah"   "Zuwarah"    "Masallatah" "Tarhuna"    "Zawiya"
+# Error in zone$list %>>% list.group(weather[[1L]]$main): object 'zone' not found
 ```
 
 Sometimes it is easier to work with data frame for vectorization and model research. For example, we can build a data frame from the non-tabular data by *stacking* the list elements with selected fields.
@@ -168,22 +166,7 @@ zonedf <- zone$list %>>%
 ```
 
 ```
-#         id       name coord_lon coord_lat  temp weather
-# 1  2217362    Gharyan  13.02028  32.17222 13.51  Clouds
-# 2  2523650     Ragusa  14.71719  36.92824 32.97   Clear
-# 3  2523581   Rosolini  14.94779  36.82424 14.76   Clear
-# 4  2524119     Modica  14.77399  36.84594 14.76   Clear
-# 5  2523693   Pozzallo  14.84989  36.73054 24.37   Clear
-# 6  2563191 Birkirkara  14.46111  35.89722 14.90  Clouds
-# 7  2208485     Zlitan  14.56874  32.46738 16.74  Clouds
-# 8  2219905   Al Khums  14.26191  32.64861 16.74  Clouds
-# 9  2208791     Yafran  12.52859  32.06329 14.14  Clouds
-# 10 2212771   Sabratah  12.48845  32.79335 14.14  Clouds
-# 11 2208425    Zuwarah  12.08199  32.93120 15.29  Clouds
-# 12 2215163 Masallatah  14.00000  32.61667 16.74  Clouds
-# 13 2210221    Tarhuna  13.63320  32.43502 14.84  Clouds
-# 14 2210247    Tripoli  13.18746  32.87519 35.00   Clear
-# 15 2216885     Zawiya  12.72778  32.75222 14.14  Clouds
+# Error in zone$list %>>% list.select(id, name, coord_lon = coord$lon, coord_lat = coord$lat, : object 'zone' not found
 ```
 
 The data frame well fits the input of most models.
@@ -196,23 +179,7 @@ zonedf %>>%
 ```
 
 ```
-# 
-# Call:
-# lm(formula = temp ~ coord_lon + coord_lat, data = .)
-# 
-# Residuals:
-#     Min      1Q  Median      3Q     Max 
-# -6.3718 -2.8074 -2.0001 -0.3938 17.9058 
-# 
-# Coefficients:
-#             Estimate Std. Error t value Pr(>|t|)
-# (Intercept) -16.0706    32.5924  -0.493    0.631
-# coord_lon     0.3053     2.7747   0.110    0.914
-# coord_lat     0.8863     1.3741   0.645    0.531
-# 
-# Residual standard error: 7.152 on 12 degrees of freedom
-# Multiple R-squared:  0.08471,	Adjusted R-squared:  -0.06784 
-# F-statistic: 0.5553 on 2 and 12 DF,  p-value: 0.588
+# Error in zonedf %>>% lm(formula = temp ~ coord_lon + coord_lat): object 'zonedf' not found
 ```
 
 ## Forecast data
@@ -238,13 +205,13 @@ head(fxts)
 ```
 
 ```
-#                       temp humidity
-# 2015-01-09 12:00:00 285.25       96
-# 2015-01-09 15:00:00 285.85       93
-# 2015-01-09 18:00:00 287.46       92
-# 2015-01-09 21:00:00 286.94       91
-# 2015-01-10 00:00:00 286.58       89
-# 2015-01-10 03:00:00 286.12       87
+#                        temp humidity
+# 2015-03-29 00:00:00 283.100       71
+# 2015-03-29 03:00:00 283.590       76
+# 2015-03-29 06:00:00 282.810       73
+# 2015-03-29 09:00:00 282.280       86
+# 2015-03-29 12:00:00 283.600       96
+# 2015-03-29 15:00:00 283.708       91
 ```
 
 As long as the data we are interested in is converted to a time series, we can easily create graphics from it.
@@ -288,9 +255,7 @@ history$list %>>%
 ```
 
 ```
-# weather
-#  Clouds    Rain    Mist Drizzle    Haze 
-#      80      58      10       3       2
+# integer(0)
 ```
 
 We can also inspect the location statistics of humidity data for each weather condition.
@@ -305,25 +270,12 @@ history$list %>>%
 ```
 
 ```
-# $Clouds
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#    42.0    59.0    70.0    67.6    77.0    88.0 
-# 
-# $Drizzle
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#   82.00   82.00   82.00   83.67   84.50   87.00 
-# 
-# $Haze
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#      77      77      77      77      77      77 
-# 
-# $Mist
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#   72.00   82.00   84.50   83.30   87.75   88.00 
-# 
-# $Rain
-#    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#   68.00   77.00   82.00   82.31   88.00   94.00
+# Warning in is.na(x): is.na() applied to non-(list or vector) of type
+# 'NULL'
+```
+
+```
+# list()
 ```
 
 Or we can create an `xts` object from it.
@@ -335,17 +287,18 @@ nyxts <- history$list %>>%
     temp = main$temp, humidity = main$humidity) %>>%
   list.stack %>>%
   (xts::xts(x = .[-1L], order.by = .$dt))
+```
+
+```
+# Error in xts::xts(x = .[-1L], order.by = .$dt): order.by requires an appropriate time-based object
+```
+
+```r
 head(nyxts)
 ```
 
 ```
-#                       temp humidity
-# 2014-10-01 08:23:50 291.47       82
-# 2014-10-01 09:22:49 290.90       72
-# 2014-10-01 09:41:57 290.34       72
-# 2014-10-01 10:22:23 290.35       77
-# 2014-10-01 11:23:14 290.10       72
-# 2014-10-01 11:35:04 290.10       72
+# Error in head(nyxts): object 'nyxts' not found
 ```
 
 The object facilitates time series operations but also can be used in time series model fitting.
@@ -356,6 +309,6 @@ forecast::auto.arima(nyxts$temp)
 ```
 
 ```
-# Error in loadNamespace(name): there is no package called 'forecast'
+# Error in as.ts(x): object 'nyxts' not found
 ```
 
