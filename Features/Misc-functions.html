@@ -624,7 +624,7 @@ list.stack(nontab)
 # 2    B     9
 </code></pre><p>For non-tabular data, we can select fields or columns in the data and <em>stack</em> the records together to create a data frame.</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(pipeR)
-list.load(<span class="hljs-string">&quot;http://renkun.me/rlist-tutorial/data/sample.json&quot;</span>) %&gt;&gt;%
+list.load(<span class="hljs-string">&quot;https://renkun-ken.github.io/rlist-tutorial/data/sample.json&quot;</span>) %&gt;&gt;%
   list.select(Name, Age) %&gt;&gt;%
   list.stack
 </code></pre>
@@ -665,7 +665,7 @@ str(data)
 # [1] 2
 </code></pre><h2 id="list-names">list.names</h2>
 <p><code>list.names()</code> can be used to set names of list elements by expression.</p>
-<pre><code class="lang-r">people &lt;- list.load(<span class="hljs-string">&quot;http://renkun.me/rlist-tutorial/data/sample.json&quot;</span>) %&gt;&gt;%
+<pre><code class="lang-r">people &lt;- list.load(<span class="hljs-string">&quot;https://renkun-ken.github.io/rlist-tutorial/data/sample.json&quot;</span>) %&gt;&gt;%
   list.select(Name, Age)
 str(people)
 </code></pre>

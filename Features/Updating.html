@@ -496,7 +496,7 @@
 <p>First, we load the data without any modification.</p>
 <pre><code class="lang-r"><span class="hljs-keyword">library</span>(rlist)
 <span class="hljs-keyword">library</span>(pipeR)
-people &lt;- list.load(<span class="hljs-string">&quot;http://renkun.me/rlist-tutorial/data/sample.json&quot;</span>)
+people &lt;- list.load(<span class="hljs-string">&quot;https://renkun-ken.github.io/rlist-tutorial/data/sample.json&quot;</span>)
 people %&gt;&gt;%
   list.select(Name, Age) %&gt;&gt;%
   list.stack
