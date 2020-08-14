@@ -37,7 +37,7 @@ It would require some efforts to translate such question to a SQL query to send 
 library(rlist)
 library(pipeR)
 
-url <- "http://renkun.me/rlist-tutorial/data/people.json"
+url <- "https://renkun-ken.github.io/rlist-tutorial/data/people.json"
 people <- list.load(url)
 people %>>%
   list.filter(Expertise$R >= 1 & Expertise$Python >= 1) %>>%

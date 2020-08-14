@@ -8,7 +8,7 @@ rlist package provides functions for sorting list elements by a series of criter
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json")
 ```
 
 ## list.order

@@ -10,7 +10,7 @@ Suppose we work with the following list.
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json")
 ```
 
 To create a `List environment`, run

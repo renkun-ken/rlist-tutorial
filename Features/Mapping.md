@@ -15,7 +15,7 @@ Suppose we load the [data](../data/sample.json) which is represented by the foll
 
 ```r
 library(rlist)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json")
 str(people)
 ```
 

@@ -10,7 +10,7 @@ rlist provides searching capabilities, that is, to find values within a list rec
 ```{r}
 library(rlist)
 library(pipeR)
-friends <- list.load("http://renkun.me/rlist-tutorial/data/friends.json")
+friends <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/friends.json")
 ```
 
 If the expression results in a single-valued logical vector and its value is `TRUE`, the whole vector will be collected. If it results in multi-valued non-logical vector, the non-`NA` results will be collected. 

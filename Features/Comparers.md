@@ -10,8 +10,8 @@ In this page, we will introduce the usage of these comparers with filtering and 
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
-friends <- list.load("http://renkun.me/rlist-tutorial/data/friends.json")
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json")
+friends <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/friends.json")
 ```
 
 ## Precise comparers

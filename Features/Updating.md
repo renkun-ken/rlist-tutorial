@@ -10,7 +10,7 @@ First, we load the data without any modification.
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json")
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json")
 people %>>%
   list.select(Name, Age) %>>%
   list.stack

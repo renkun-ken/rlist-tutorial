@@ -8,7 +8,7 @@
 ```r
 library(rlist)
 library(pipeR)
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json") %>>%
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json") %>>%
   list.names(Name)
 ```
 

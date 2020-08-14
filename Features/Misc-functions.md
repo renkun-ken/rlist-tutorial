@@ -248,7 +248,7 @@ For non-tabular data, we can select fields or columns in the data and *stack* th
 
 ```r
 library(pipeR)
-list.load("http://renkun.me/rlist-tutorial/data/sample.json") %>>%
+list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json") %>>%
   list.select(Name, Age) %>>%
   list.stack
 ```
@@ -311,7 +311,7 @@ list.flatten(data)
 
 
 ```r
-people <- list.load("http://renkun.me/rlist-tutorial/data/sample.json") %>>%
+people <- list.load("https://renkun-ken.github.io/rlist-tutorial/data/sample.json") %>>%
   list.select(Name, Age)
 str(people)
 ```
